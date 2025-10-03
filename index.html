@@ -1,0 +1,2828 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرشد عزماوي </title>
+    <style>
+        /* أساسيات التصميم المحسّن */
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #283593;
+            --light-color: #e8eaf6;
+            --dark-color: #0d1450;
+            --accent-color: #ff9800;
+            --text-color: #333;
+            --white: #fff;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-secondary: linear-gradient(135deg, var(--secondary-color), var(--dark-color));
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-heavy: 0 12px 36px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* تحسينات عامة */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        /* الترويسة المحسنة */
+        header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 20px 0;
+            position: relative;
+            box-shadow: var(--shadow-medium);
+            text-align: center;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            border: 4px solid var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            margin-bottom: 15px;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .site-title {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+        
+        .welcome-text {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        /* زر القائمة (ثلاث شحطات) */
+        .menu-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+        
+        .menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        
+        /* القائمة الجانبية */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background: var(--gradient-secondary);
+            z-index: 1002;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            padding: 80px 20px 20px;
+        }
+        
+        .side-menu.active {
+            right: 0;
+        }
+        
+        .side-menu ul {
+            list-style: none;
+        }
+        
+        .side-menu li {
+            margin-bottom: 15px;
+        }
+        
+        .side-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .side-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateX(-5px);
+        }
+        
+        .side-menu a i {
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        /* الأقسام الرئيسية المحسنة */
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .section-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+        
+        .section-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .section-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .section-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .section-card:hover .section-image img {
+            transform: scale(1.1);
+        }
+        
+        .section-title {
+            padding: 20px;
+            text-align: center;
+            background-color: var(--white);
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            font-weight: 700;
+            border-top: 1px solid #eee;
+        }
+        
+        /* النوافذ المنبثقة المحسنة */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 0;
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            margin: 0;
+            border-radius: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: none;
+            position: relative;
+            overflow-y: auto;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: var(--shadow-light);
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 5px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .close-modal:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-body {
+            padding: 30px;
+            max-height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+        
+        /* محتوى النوافذ المنبثقة المحسن */
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .faq-question::before {
+            content: 'Q:';
+            background: var(--gradient-primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .faq-answer {
+            padding-right: 40px;
+            color: #555;
+        }
+        
+        .transport-option {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: var(--light-color);
+            border-radius: 10px;
+            border-right: 4px solid var(--primary-color);
+        }
+        
+        .transport-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+        
+        .transport-title i {
+            margin-left: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .colleges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .college-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+            border: 1px solid #eee;
+        }
+        
+        .college-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .college-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .college-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .college-card:hover .college-image img {
+            transform: scale(1.05);
+        }
+        
+        .college-name {
+            padding: 15px;
+            text-align: center;
+            background: var(--gradient-primary);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .majors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .major-btn {
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            padding: 25px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            text-align: center;
+            font-weight: 700;
+            box-shadow: var(--shadow-medium);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+        
+        .major-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent-color);
+        }
+        
+        .major-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s;
+        }
+        
+        .major-btn:hover {
+            background: var(--gradient-secondary);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--accent-color);
+        }
+        
+        .major-btn:hover::after {
+            left: 100%;
+        }
+        
+        .major-btn i {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .major-title {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        
+        .major-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* التذييل المحسن */
+        footer {
+            background: var(--gradient-secondary);
+            color: var(--white);
+            padding: 40px 0 20px;
+            margin-top: 70px;
+        }
+        
+        .contact-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+        
+        .instagram-info {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .instagram-info i {
+            margin-left: 10px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        /* أزرار العودة المحسنة */
+        .back-btn {
+            background: var(--dark-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 25px 0;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+        }
+        
+        .back-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
+        /* تحسينات إضافية */
+        .info-box {
+            background: linear-gradient(to left, var(--light-color), #f0f4ff);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 5px solid var(--primary-color);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .highlight {
+            background: linear-gradient(to right, #fff9c4, #fff59d);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #5d4037;
+        }
+        
+        .major-details {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 5px solid var(--accent-color);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .major-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .major-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .info-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            border-right: 3px solid var(--primary-color);
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+        
+        .job-fields {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .job-field {
+            background: var(--light-color);
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* أزرار الصور في قسم الاستفسارات */
+        .image-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+            justify-content: center;
+        }
+        
+        .image-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .image-btn:hover {
+            background: var(--gradient-secondary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .image-btn i {
+            margin-left: 10px;
+            font-size: 1.3rem;
+        }
+        
+        /* أزرار المنح والقروض */
+        .grants-loans-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .grant-loan-btn {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            padding: 20px 30px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+            min-height: 120px;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-medium);
+            text-align: center;
+        }
+        
+        .grant-loan-btn.loans {
+            background: linear-gradient(135deg, #2196F3, #0D47A1);
+        }
+        
+        .grant-loan-btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .grant-loan-btn i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        /* نافذة عرض الصورة */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .image-modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .image-modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .close-image-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* تأثيرات إضافية */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* مؤشر التحميل */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .smurf-loader {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .smurf-loader img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .loading-text {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        /* صور قسم من نحن */
+        .about-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .about-image {
+            width: 280px;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            transition: transform 0.3s ease;
+        }
+        
+        .about-image:hover {
+            transform: translateY(-5px);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 992px) {
+            .site-title {
+                font-size: 2rem;
+            }
+            
+            .majors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 1.8rem;
+            }
+            
+            .welcome-text {
+                font-size: 1.1rem;
+            }
+            
+            .sections-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .colleges-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .majors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+            
+            .major-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .job-fields {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .image-btn {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .grants-loans-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .grant-loan-btn {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .about-images {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-image {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .site-title {
+                font-size: 1.6rem;
+            }
+            
+            .welcome-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- مؤشر التحميل -->
+    <div class="loading-overlay" id="loading-overlay">
+    <div class="smurf-loader">
+        <img src="https://i.ibb.co/vvkvxBKM/pngimg-com-smurf-PNG70.png" alt="شعار التحميل">
+        <div class="loading-text">جارٍ التحميل...</div>
+    </div>
+</div>
+        </div>
+    </div>
+    
+    <!-- زر القائمة (ثلاث شحطات) -->
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- القائمة الجانبية -->
+    <div class="side-menu" id="side-menu">
+        <ul>
+            <li><a href="#" id="about-link"><i class="fas fa-users"></i> من نحن</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdHoIu0G2KGH2fculiku5nrUtsa3VFGOsgw1z_0rAkAWFy0xA/viewform?usp=header" target="_blank" id="rating-link"><i class="fas fa-star"></i> تقييم</a></li>
+        </ul>
+    </div>
+    
+    <!-- طبقة التعتيم -->
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- الترويسة المحسنة -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4xm0ZsBeGOoreNmGxKu0MuOyeXYHydLH-aw&s" alt="شعار مرشد عزماوي">
+                    </div>
+                    <h1 class="site-title">مرشد عزماوي</h1>
+                    <p class="welcome-text">اهلا وسهلا بكم في موقعنا الإرشادي لسنافر جيل 2007 (2025-2026)</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- الأقسام الرئيسية المحسنة -->
+    <div class="container">
+        <div class="sections-grid">
+            <!-- قسم أهم الاستفسارات -->
+            <div class="section-card" id="faq-section">
+                <div class="section-image">
+                    <img src="https://i.ibb.co/sv2FnJRk/1111.jpg" alt="أهم الاستفسارات">
+                </div>
+                <div class="section-title">أهم الاستفسارات</div>
+            </div>
+            
+            <!-- قسم المواصلات -->
+            <div class="section-card" id="transport-section">
+                <div class="section-image">
+                    <img src="https://i.ibb.co/fbcZ5Lq/IMG-20250225-WA0069.jpg" alt="المواصلات من وإلى الجامعة">
+                </div>
+                <div class="section-title">المواصلات من وإلى الجامعة</div>
+            </div>
+            
+            <!-- قسم الكليات -->
+            <div class="section-card" id="colleges-section">
+                <div class="section-image">
+                    <img src="https://i.ibb.co/jvRGQmdB/IMG-20250925-WA0081.jpg" alt="احكيلي عن كليتي">
+                </div>
+                <div class="section-title">احكيلي عن كليتي</div>
+            </div>
+            
+            <!-- قسم امتحانات المستوى -->
+            <div class="section-card" id="exams-section">
+                <div class="section-image">
+                    <img src="https://i.ibb.co/4wWT856g/IMG-20250927-WA0019.jpg" alt="امتحانات مستوى">
+                </div>
+                <div class="section-title">امتحانات مستوى</div>
+            </div>
+            
+            <!-- قسم المنح والقروض -->
+            <div class="section-card" id="grants-section">
+                <div class="section-image">
+                    <img src="https://i.ibb.co/NdyCg4Wd/IMG-20250927-WA0000.jpg" alt="المنح والقروض">
+                </div>
+                <div class="section-title">المنح والقروض</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة أهم الاستفسارات المحسنة -->
+    <div class="modal" id="faq-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">أهم الاستفسارات</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="info-box">
+                    <p>سنافر الإسلام الفخمين، مبارك قبولكم ونفع الله بكم الأمة.</p>
+                </div>
+                
+                <h3 style="margin: 25px 0 20px; color: var(--dark-color);">أهم إجابات الاسئلة المطروحة :</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">ماذا أفعل إذا تم وصول رسالة القبول إليّ في الجامعة؟</div>
+                    <div class="faq-answer">تستطيع أن تسجّل ميدانيًا من خلال مراجعتك لفعاليّة إستقبال الطلبة المستجدين في الصالة الرياضية، أو إلكترونيًا من خلال رابط التسجيل الذي تم نشره على صفحتنا(أهل العزم).</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">كم تبلغ رسوم التسجيل ؟</div>
+                    <div class="faq-answer">التنافس 285+رسوم الساعات ومن ثم كل فصل 125+رسوم الساعات.<br>الموزاي 435 +رسوم الساعات ومن ثم كل فصل 200+رسوم الساعات.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">هل يجب أن أدفع كامل رسوم التسجيل والساعات أم أستطيع التقسيط؟</div>
+                    <div class="faq-answer">يكون الدفع لأول فصل كامل المبلغ ومن ثم تستطيع أن تضع جزء من الرسوم على الذمم في باقي الفصول.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">كيف أدفع الرسوم ؟</div>
+                    <div class="faq-answer">الدفع من خلال إي فواتيركم .</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">هل أستطيع التحكّم بعدد الساعات ؟</div>
+                    <div class="faq-answer">نعم، عدد الساعات الذي تضعه الجامعة للطلبة المستجدين 12 ساعة،و تستطيع ان تُضيف عليه حسب المُتاح.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">ما هي المكارم الموجودة في الجامعة ؟</div>
+                    <div class="faq-answer">(مكرمة الجيش / مكرمة المعلمين).</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">لديّ مكرمة ومكتوب عليها عند جهة الإنفاق (نفقة خاصّة) لماذا؟</div>
+                    <div class="faq-answer">ستتغير لوحدها، عندما تُعلن المكرمة عن الإجراءات المطلوبة و تقوم بفعلها.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">هل يوجد قروض ومنح بالجامعة ؟</div>
+                    <div class="faq-answer">الجامعة غير متوفر فيها منح من التعليم العالي، لكن يتوفر فيها منح داخلية لكليات المذاهب، ومنحة حفظ القرآن الكريم كاملًا لتخصصات الشريعة واللغة العربية، ويوجد صندوق للقروض، سيأتي الشرح عنه مُفصلًا في الموقع.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">ما هي مواعيد امتحانات المستوى؟</div>
+                    <div class="faq-answer">سوف تحددها الجامعة لاحقًا.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">كيف استطيع التحويل من تخصص لا اريده إلى تخصص آخر ؟</div>
+                    <div class="faq-answer">من خلال رابط الاعتراض،واذا كان التخصص الذي يرغب الطالب بالتحويل عليه نفس معدل الثانوية العامة أو أقل يستطيع التحويل عن طريق التسجيل المُباشر بالجامعة، ولا داعي في هذه الحالة لرابط الاعتراض.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">ماذا يحصل إذا قدّمت على رابط الاعتراض ولم أسجل بالتخصُّص الذي أتيحَ لي بالاعتراض !؟</div>
+                    <div class="faq-answer">إذا لم تدفع المبلغ المطلوب وانتهى موعد تسجيلك، تفقد حقك بالمقعد الجديد.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">هل يوجد دفع لطلب الاعتراض ؟</div>
+                    <div class="faq-answer">لا.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">متى تكون نتيجة الاعتراض؟</div>
+                    <div class="faq-answer">بعد أسبوع من التقديم تقريبًا.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">كيف أسجّل على النظام الموازي بالجامعة ؟</div>
+                    <div class="faq-answer">من خلال مراجعتك للقبول والتسجيل ودفع الرسوم كاملة،او من خلال الرابط.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">هل لديكم معلومات عن مكرمة الجيش؟</div>
+                    <div class="faq-answer">نعم،يتم دفع الرسوم كاملة أول فصل وبعد ذلك دفع 50 دينار للفصل العادي، والفصل الصيفي 25 دينار، ورسوم الساعات مُستردات.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">ما هي تفاصيل مكرمة المعلمين بالجامعة ؟</div>
+                    <div class="faq-answer">يقوم الطالب بدفع كامل الرسوم لأول فصل، وعندما يتمّ قبوله بالمكرمة، يتم إعادة رسوم الساعات فقط، وبعد ذلك،كل فصل يقوم بدفع رسوم التسجيل فقط، ويُعفى من رسوم الساعات. وإذا تم رسوب الطالب بمادة من المواد، يتحمل رسومها.</div>
+                </div>
+                
+                <!-- إضافة طريقة دفع الرسوم -->
+                <div class="info-box" style="background: linear-gradient(to left, #e8f5e9, #c8e6c9); border-right: 5px solid #4CAF50;">
+                    <h3 style="color: #2E7D32; margin-bottom: 15px;">كيفية دفع الرسوم الجامعية بغير الحاجة إلى مراجعة البنك أو الجامعة:</h3>
+                    <ol style="margin-right: 20px; margin-top: 10px;">
+                        <li>حمّل تطبيق إي فواتيركم وأنشئ حسابًا عليه.</li>
+                        <li>انقر على خانة (حكومية) ثم خانة (تعليمي).</li>
+                        <li>ابحث على اسم جامعة العلوم الإسلامية.</li>
+                        <li>اكتب رقمك الجامعي وحدد خيار (الرسوم الجامعية).</li>
+                        <li>انقر استعلام ثم استمرار للدفع.</li>
+                    </ol>
+                    <p style="margin-top: 15px; font-weight: 600; color: #2E7D32;">تهانينها تمّ دفع كامل الرسوم.</p>
+                </div>
+                
+                <!-- أزرار الصور المضافة -->
+                <div style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px; color: var(--dark-color);">معلومات إضافية:</h3>
+                    <div class="image-buttons">
+                        <button class="image-btn" data-image="https://i.ibb.co/KjFZqg6S/IMG-20251003-WA0012.jpg">
+                            <i class="fas fa-file-alt"></i> الأوراق المطلوبة للتسجيل
+                        </button>
+                        <button class="image-btn" data-image="https://i.ibb.co/yFx9VGzD/IMG-20251003-WA0013.jpg">
+                            <i class="fas fa-money-bill-wave"></i> أسعار الساعات للتنافس والموازي
+                        </button>
+                        <button class="image-btn" data-image="https://i.ibb.co/993zxSmf/89.jpg">
+                            <i class="fas fa-map"></i> خريطة الجامعة
+                        </button>
+                        <!-- إضافة زر معدلات القبول 2025/2026 -->
+                        <button class="image-btn" data-image="https://i.ibb.co/vCrx4p8F/IMG-20250927-WA0017.jpg">
+                            <i class="fas fa-chart-line"></i> معدلات القبول 2025/2026
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="back-btn"><i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة المواصلات المحسنة -->
+    <div class="modal" id="transport-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">المواصلات من وإلى الجامعة</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="transport-option">
+                    <div class="transport-title"><i class="fas fa-bus"></i> باص عمّان</div>
+                    <p>بتشتري بطاقة الباص من مجمع الشمال أو رغدان(المحطة) أو من أي محطة للباص، سعرها دينار وبتعبّيها بالمبلغ اللي بدك إياه..</p>
+                    <p>في 3 باصات عمّان بمرّ أو بتوقف عند جامعتنا:</p>
+                    <ul style="margin-right: 20px; margin-top: 10px;">
+                        <li>باص الاتحاد الرياضي - محطة طارق (بمرّ من عند البوابة الرئيسية للجامعة)</li>
+                        <li>باص المحطة - طبربور (بوقّف عند البوابة الرئيسية للجامعة)</li>
+                        <li>باص مجمع الشمال - شفا بدران (بمرّ من عند بوابة كلية الدعوة وأصول الدين)</li>
+                    </ul>
+                    <p style="margin-top: 10px;">* ولحتى تعرف جميع المسارات الخاصّة فيه نزل تطبيق "باص عمّان" .</p>
+                </div>
+                
+                <div class="transport-option">
+                    <div class="transport-title"><i class="fas fa-bus-alt"></i> الباص السريع</div>
+                    <p>(موجود بكون بالمحطات اللي ما بعد ركوبك لباص عمّان)</p>
+                    <ul style="margin-right: 20px; margin-top: 10px;">
+                        <li><span class="highlight">الخط رقم 99</span> - (صويلح - شارع الجامعة - دوار المدينة - الخامس - عبدون - محطة متحف الأردن (راس العين))</li>
+                        <li><span class="highlight">الخط رقم 100</span> - (صويلح - شارع الجامعة الأردنية - دوار المدينة - محطة طارق - شارع الاستقلال - مجمع المحطة (رغدان))</li>
+                        <li><span class="highlight">الخط رقم 98</span> - (صويلح - شارع الجامعة - محطة طارق)</li>
+                    </ul>
+                </div>
+                
+                <div class="transport-option">
+                    <div class="transport-title"><i class="fas fa-bus"></i> باصات الزرقاء</div>
+                    <p>لو قريب من مجمع الزرقاء في باصات بتكون برا المجمع بتوصلّك للجامعة، التجمع بكون عند صيدلية الريم، أو بتطلع من المجمع باصات الجامعة الأردنية صويلح واحكيله ينزلك على دوار المشاغل ومن هناك يا بتنتظر باص عمان باخدك للجامعة وهاد على حسب الموعد ومسارات الباص، يا تكسي للجامعة.</p>
+                </div>
+                
+                <div class="transport-option">
+                    <div class="transport-title"><i class="fas fa-bus"></i> باصات مأدبا</div>
+                    <p>1} موجود باصين بمجمع مأدبا (شرقي/غربي) بطلعوا ع ال٦:٤٠ تقريبًا وبوصلوك لباب الجامعة عند كلية الدعوة، وفي باص بطلع ع ال٩ لو دوامك كان دوامك متأخر.</p>
+                 
+   <p>2} باص مجمع الشمال ومن مجمع الشمال بباص رقم 5.</p>
+                
+    <p>3} الباص السريع مادبا،لمحطة طارق و من محطة طارق، بباص رقم 5 للجامعة.</p>
+                </div>
+                
+                <div class="transport-option">
+                    <div class="transport-title"><i class="fas fa-bus"></i> باصات جرش</div>
+                    <p>من باب عمان مدخل جرش، في باص عمان بوصل لمجمع الشمال، من مجمع الشمال لمحطة طارق، ومن محطة طارق للجامعة.</p>
+                </div>
+                
+                <button class="back-btn"><i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة الكليات المحسنة -->
+    <div class="modal" id="colleges-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">احكيلي عن كليتي</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="text-align: center; margin-bottom: 25px; font-size: 1.1rem;">اختر الكلية لمعرفة التخصصات المتاحة:</p>
+                
+                <div class="colleges-grid">
+                    <!-- كلية الآداب والعلوم -->
+                    <div class="college-card" data-college="arts">
+                        <div class="college-image">
+                            <img src="https://i.ibb.co/Z60Ch4Jy/IMG-20250225-WA0065.jpg" alt="كلية الآداب والعلوم">
+                        </div>
+                        <div class="college-name">كلية الآداب والعلوم</div>
+                    </div>
+                    
+                    <!-- كلية العلوم التربوية -->
+                    <div class="college-card" data-college="education">
+                        <div class="college-image">
+                            <img src="https://i.ibb.co/Hfz3rdsF/IMG-20250225-WA0064.jpg" alt="كلية العلوم التربوية">
+                        </div>
+                        <div class="college-name">كلية العلوم التربوية</div>
+                    </div>
+                    
+                    <!-- كلية المذاهب الفقهية -->
+                    <div class="college-card" data-college="fiqh">
+                        <div class="college-image">
+                            <img src="https://i.ibb.co/y73jWYV/IMG-20250225-WA0066.jpg" alt="كلية المذاهب الفقهية">
+                        </div>
+                        <div class="college-name">كلية المذاهب الفقهية</div>
+                    </div>
+                    
+                    <!-- كلية الفنون والعمارة الإسلامية -->
+                    <div class="college-card" data-college="arts-architecture">
+                        <div class="college-image">
+                            <img src="https://i.ibb.co/Kx36mWbw/IMG-20250225-WA0063.jpg" alt="كلية الفنون والعمارة الإسلامية">
+                        </div>
+                        <div class="college-name">كلية الفنون والعمارة الإسلامية</div>
+                    </div>
+                    
+                    <!-- كلية المال والأعمال -->
+                    <div class="college-card" data-college="business">
+                        <div class="college-image">
+                            <img src="https://i.ibb.co/7JZV3z2D/IMG-20250225-WA0062.jpg" alt="كلية المال والأعمال">
+                        </div>
+                        <div class="college-name">كلية المال والأعمال</div>
+                    </div>
+                    
+                    <!-- كلية الشيخ نوح والقضاة للشريعة والقانون -->
+                    <div class="college-card" data-college="law">
+                        <div class="college-image">
+                            <img src="https://i.ibb.co/k6JYX7FL/IMG-20250925-WA0063.jpg" alt="كلية الشيخ نوح والقضاة للشريعة والقانون">
+                        </div>
+                        <div class="college-name">كلية الشيخ نوح والقضاة للشريعة والقانون</div>
+                    </div>
+                    
+                    <!-- كلية تكنولوجيا المعلومات -->
+                    <div class="college-card" data-college="it">
+                        <div class="college-image">
+                            <img src="https://i.ibb.co/rKx8BpFT/IMG-20250925-WA0069.jpg" alt="كلية تكنولوجيا المعلومات">
+                        </div>
+                        <div class="college-name">كلية تكنولوجيا المعلومات</div>
+                    </div>
+                    
+                    <!-- كلية الدعوة وأصول الدين -->
+                    <div class="college-card" data-college="daawa">
+                        <div class="college-image">
+                            <img src="https://i.ibb.co/NdgwqfKN/FB-IMG-1759349808726.jpg" alt="كلية الدعوة وأصول الدين">
+                        </div>
+                        <div class="college-name">كلية الدعوة وأصول الدين</div>
+                    </div>
+                </div>
+                
+                <button class="back-btn"><i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة التخصصات المحسنة -->
+    <div class="modal" id="majors-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="majors-title">تخصصات الكلية</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="majors-container">
+                    <!-- سيتم تعبئة التخصصات ديناميكياً -->
+                </div>
+                <button class="back-btn" id="back-to-colleges"><i class="fas fa-arrow-right"></i> العودة لقائمة الكليات</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة امتحانات المستوى -->
+    <div class="modal" id="exams-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">امتحانات مستوى</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="info-box">
+                    <p>امتحانات المستوى هي اختبارات تقيس مستوى الطالب في بعض المواد الأساسية لتحديد مدى استعداده للدراسة الجامعية.</p>
+                </div>
+                
+                <h3 style="margin: 25px 0 15px; color: var(--dark-color);">ما هي امتحانات المستوى؟</h3>
+                <p>امتحانات المستوى هي اختبارات إلزامية تفرضها الجامعة على الطلبة الجدد لتقييم مستواهم في المواد الأساسية مثل اللغة العربية واللغة الإنجليزية والحاسوب. تهدف هذه الامتحانات إلى:</p>
+                <ul style="margin-right: 20px; margin-top: 10px;">
+                    <li>تحديد مستوى الطالب في المواد الأساسية</li>
+                    <li>مساعدة الطالب في اختيار المسارات الدراسية المناسبة</li>
+                    <li>تحديد الحاجة لدورات تقوية في بعض المواد</li>
+                    <li>ضمان جودة التعليم والتحصيل العلمي للطالب</li>
+                </ul>
+                
+                <h3 style="margin: 25px 0 15px; color: var(--dark-color);">مواعيد الامتحانات:</h3>
+                <p>يتم الإعلان عن مواعيد امتحانات المستوى قبل بداية الفصل الدراسي بأسبوعين تقريبًا. يرجى متابعة موقع الجامعة والصفحات الرسمية للحصول على أحدث المعلومات.</p>
+                
+                <h3 style="margin: 25px 0 15px; color: var(--dark-color);">كيفية التحضير للامتحانات:</h3>
+                <ul style="margin-right: 20px; margin-top: 10px;">
+                    <li>مراجعة المناهج الأساسية للمواد المطلوبة</li>
+                    <li>حل نماذج الامتحانات السابقة</li>
+                    <li>الاطلاع على نماذج الامتحانات المتاحة عبر الرابط أدناه</li>
+                </ul>
+                
+                <div style="text-align: center; margin: 30px 0;">
+                    <a href="https://drive.google.com/drive/folders/17Lj9q18GSS78Ogt2BPZ4U4DBGQgL62BR" target="_blank" class="back-btn" style="text-decoration: none; display: inline-block;">
+                        <i class="fas fa-external-link-alt"></i> عرض نماذج امتحانات المستوى
+                    </a>
+                </div>
+                
+                <button class="back-btn"><i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة المنح والقروض -->
+    <div class="modal" id="grants-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">المنح والقروض</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="info-box">
+                    <p>سنافرنا الأعزاء، جئنا إليكم بتفاصيل المنح والقروض للإجابة على تساؤلاتكم</p>
+                </div>
+                
+                <!-- أزرار المنح والقروض -->
+                <div class="grants-loans-buttons">
+                    <button class="grant-loan-btn loans" id="loans-btn">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <span>القروض</span>
+                    </button>
+                    <button class="grant-loan-btn" id="grants-btn">
+                        <i class="fas fa-award"></i>
+                        <span>المنح</span>
+                    </button>
+                </div>
+                
+                <button class="back-btn"><i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة القروض -->
+    <div class="modal" id="loans-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">القروض</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3 style="margin: 25px 0 15px; color: var(--dark-color);">فيما يخص القروض:</h3>
+                <p>بدأ وتفعّل التقديم للقروض في جامعة العلوم الإسلامية بتاريخ 15/12/2024</p>
+                
+                <h4 style="margin: 20px 0 10px; color: var(--primary-color);">شروط تقديم طلب قرض الطالب:</h4>
+                <ul style="margin-right: 20px; margin-top: 10px;">
+                    <li>أن يكون الطالب أردني الجنسية وأن لا يكون قد صدرت بحقه عقوبة تأديبية من مستوى إنذار فأعلى سارية المفعول عند تقديم الطلب.</li>
+                    <li>أن يكون الحد الأدنى للمعدل التراكمي للطالب ممن هو على مقاعد الدراسة في الجامعة (68٪) بتقدير جيد أو ما يعادله للاستفادة من القرض.</li>
+                    <li>أن يكون الحد الأدنى لمعدل الثانوية العامة للطلبة المستجدين في الجامعة (65٪).</li>
+                    <li>لا يجوز للطالب الذي يستفيد من أي منحة أو قرض من أي جهة أن يتقدم بطلب القرض.</li>
+                    <li>أن لا يزيد عدد الساعات المعتمدة والمقطوعة بنجاح عن 98 ساعة.</li>
+                </ul>
+                
+                <div class="info-box" style="background: #fff3e0; border-right: 5px solid #ff9800;">
+                    <h4 style="color: #e65100; margin-bottom: 10px;">علمًا أنّه يوجد بعض الطلبة لا تشملهم القروض، مثل:</h4>
+                    <ol style="margin-right: 20px;">
+                        <li>الطلبة غير الأردنيين.</li>
+                        <li>طلبة الدبلوم.</li>
+                        <li>الطلبة الذين قطعوا أكثر من 98 ساعة.</li>
+                    </ol>
+                </div>
+                
+                <button class="back-btn" id="back-to-grants"><i class="fas fa-arrow-right"></i> العودة للمنح والقروض</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة المنح -->
+    <div class="modal" id="grants-details-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">المنح</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3 style="margin: 25px 0 15px; color: var(--dark-color);">فيما يخص المنح:</h3>
+                
+                <div class="major-details">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">منحة حفظ القرآن الكريم كاملًا أو 15 جزء</h4>
+                    <p><strong>شروط المنحة هي:</strong></p>
+                    <ul style="margin-right: 20px;">
+                        <li>حصول الطالب في امتحان المنحة علامة 90%.</li>
+                        <li>لجميع تخصصات الشريعة وتخصص اللغة العربية.</li>
+                        <li>تُغطّي رسوم الساعات فقط.</li>
+                        <li>باقي التخصصات والدراسات العليا يدفع 25% من رسوم الساعات إضافةً لرسوم الخدمات.</li>
+                    </ul>
+                </div>
+                
+                <div class="major-details">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">منحة كلية الفقه المالكي</h4>
+                    <p>للبكالوريوس منحة كاملة (دراسة مجانية)</p>
+                    <p><strong>شروط المنحة، هي:</strong></p>
+                    <ul style="margin-right: 20px;">
+                        <li>هي حصول الطالب على معدل 75% فما فوق في الثانوية العامّة.</li>
+                    </ul>
+                </div>
+                
+                <div class="major-details">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">منح كلية الفقه الشافعي:</h4>
+                    <ul style="margin-right: 20px;">
+                        <li>منحة حفظ القرآن الكريم كاملًا (للحاصل على معدل 80% فما فوق في الثانوية العامة).</li>
+                        <li>منحة كاملة (للحاصل على معدل 90% فما فوق في الثانوية العامة).</li>
+                        <li>الطالب الحاصل على معدل 75% فما فوق (منحة جزئية).</li>
+                    </ul>
+                </div>
+                
+                <div class="major-details">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">منح كلية الفقه الحنفي:</h4>
+                    <ul style="margin-right: 20px;">
+                        <li>حصول الطالب على معدل 90% فما فوق (منحة كاملة).</li>
+                        <li>حصول الطالب على معدل 80% - 90% (منحة جزئية).</li>
+                        <li>منحة حفظ القرآن الكريم (منحة جزئية).</li>
+                    </ul>
+                </div>
+                
+                <div class="major-details">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">منحة الأمير غازي لطلاب كلية المذاهب</h4>
+                    <p><strong>شروطها:</strong></p>
+                    <ul style="margin-right: 20px;">
+                        <li>معدل التوجيهي 80% فما فوق، وفيها يُعفى الطالب من رسوم الساعات فقط.</li>
+                    </ul>
+                </div>
+                
+                <button class="back-btn" id="back-to-grants-details"><i class="fas fa-arrow-right"></i> العودة للمنح والقروض</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة من نحن المحسنة -->
+    <div class="modal" id="about-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">من نحن</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="info-box">
+                    <p>فريق طلابي طموح، انطلق من جامعة العلوم الإسلامية، سعيًا لخدمة الطلبة وتثقيفهم ورفع مستوى الوعي عندهم، وتقديم يد العون لهم أكاديميًا وتربويًا وعلميًا.</p>
+                </div>
+                
+                <div class="about-images">
+                    <div class="about-image">
+                        <img src="https://i.ibb.co/39JCCcYT/FB-IMG-1759425783458.jpg" alt="صورة فريق مرشد عزماوي">
+                    </div>
+                    <div class="about-image">
+                        <img src="https://i.ibb.co/LXnnH8Sm/FB-IMG-1759425737583.jpg" alt="صورة فريق مرشد عزماوي">
+                    </div>
+                </div>
+                
+                <h3 style="margin: 25px 0 15px; color: var(--dark-color);">رؤيتنا:</h3>
+                <p>شباب جامعي واعٍ وفاعل ومؤثر يمتلك أدوات النجاح والتغيير في ساحات العمل الجامعي.</p>
+                
+                <h3 style="margin: 25px 0 15px; color: var(--dark-color);">رسالتنا:</h3>
+                <p>تكوين جيل شباب واعي، منتمي لوطنه وأمته، ذو خطاب متزن ومنظومة أخلاقية وقيمية، وهوية وطنية جامعة يمتلك أدوات التغيير ويسهم في تحقيق آمال الشباب وتطوعاتهم.</p>
+                
+                <h3 style="margin: 25px 0 15px; color: var(--dark-color);">أهدافنا:</h3>
+                <ol style="margin-right: 20px;">
+                    <li>تعميق شعور الانتماء عند الطلبة على عدة مستويات منها الانتماء للدين والأمة والوطن والجامعة.</li>
+                    <li>خدمة الطالب أكاديمياً وبكل ما يلزم.</li>
+                    <li>نشر الوعي والفكر والرسائل القيمية بين طلبة الجامعة بالقضايا المختلفة.</li>
+                    <li>نشر مفهوم الخيرية عند الطلبة وتشجيعهم على البذل والعطاء.</li>
+                    <li>توعية الطلبة بحقوقهم وواجباتهم.</li>
+                    <li>خدمة وإفادة مجتمع طلاب الجامعة والمساهمة في تقدمه الذي سينعكس على الوطن مستقبلاً.</li>
+                    <li>صناعة حالة طلابية جديدة من خلال التغيير ومن ثم التطوير نحو الأفضل.</li>
+                </ol>
+                
+                <button class="back-btn"><i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة التقييم المحسنة -->
+    <div class="modal" id="rating-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">تقييم الموقع</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="text-align: center; margin-bottom: 25px; font-size: 1.1rem;">شاركنا برأيك لتطوير موقعنا وتحسين تجربتك</p>
+                
+                <div style="text-align: center; margin: 25px 0;">
+                    <div style="font-size: 2.5rem; color: gold; margin-bottom: 20px;">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                    <p id="rating-text" style="font-size: 1.2rem;">اضغط على النجوم للتقييم</p>
+                </div>
+                
+                <div style="margin: 25px 0;">
+                    <label for="feedback" style="display: block; margin-bottom: 15px; font-weight: 600; font-size: 1.1rem;">ملاحظاتك أو اقتراحاتك:</label>
+                    <textarea id="feedback" rows="4" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; resize: vertical; font-size: 1rem;"></textarea>
+                </div>
+                
+                <button class="back-btn" style="background-color: var(--primary-color);" id="submit-rating"><i class="fas fa-paper-plane"></i> إرسال التقييم</button>
+                <button class="back-btn"><i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة عرض الصورة -->
+    <div class="image-modal" id="image-modal">
+        <div class="image-modal-content">
+            <span class="close-image-modal">&times;</span>
+            <img id="modal-image" src="" alt="صورة مكبرة">
+        </div>
+    </div>
+    
+    <!-- التذييل المحسن -->
+    <footer>
+        <div class="container">
+            <div class="contact-section">
+                <h3 class="contact-title">تواصل معنا</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/18asBMgmfY/" class="social-link" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/azem_wise?igsh=azM2MGNla3VhaGpv" class="social-link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/azem_wise" class="social-link" target="_blank">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                </div>
+               
+            </div>
+            <div class="copyright">
+                &copy; 2025 مرشد عزماوي - جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // بيانات التخصصات للكليات مع إضافة المعلومات المطلوبة
+        const collegesData = {
+            arts: {
+                name: "كلية الآداب والعلوم",
+                majors: [
+                    {
+                        name: "اللّغة العربيّة وآدابها",
+                        icon: "fas fa-book",
+                        description: `يقول الشَّاعر:
+أو دَع لِسانَكَ وَاللُغاتِ فَرُبَّما
+غَنّى الأَصيلُ بِمَنطِقِ الأَجدادِ
+ إِنَّ الَّذي مَلَأَ اللُغاتِ مَحاسِنًا
+جَعَلَ الجَمالَ وَسَرَّهُ في الضادِ
+
+اللّغة المحفوظة بحفظ القرآن، لغة الإيجاز والإعجاز.
+يهدف التخصص إلى تدريس فرعين من فروع المعرفة الأدب واللغة، أما الأدب فيدرس عبر العصور المختلفة الجاهلي، الأموي، العباسي، الأندلسي فالعصر الحديث، وأما عن تدريس مواد اللّغة فيها النحو والصرف والعروض والأصوات واللسانيات، حتّى يكون المتخصص مكتسبا المهارات الأساسية للغة وقادرًا على تحليل النصوص ونقدها، إضافة إلى القدرة على التعبير بلغة سليمة دقيقة المفردات واضحة المعاني.`,
+                        hours: 132,
+                        competitivePrice: 16,
+                        parallelPrice: 30,
+                        features: [
+                            "دراسة الأدب عبر العصور المختلفة",
+                            "تعميق المعرفة بقواعد اللغة العربية",
+                            "تنمية مهارات التحليل النقدي للنصوص",
+                            "القدرة على التعبير بلغة سليمة ودقيقة"
+                        ],
+                        jobFields: [
+                            "التدريس",
+                            "الترجمة",
+                            "تعليم اللغة العربية لغير الناطقين بها",
+                            "التحرير الإعلامي",
+                            "التدقيق اللّغوي",
+                            "كاتب نصوص"
+                        ]
+                    },
+                    {
+                        name: "التاريخ والحضارة الإسلامية",
+                        icon: "fas fa-landmark",
+                        description: "هو أحد تخصصات كلية الآداب في جامعة العلوم الإسلامية، يحتوي على مواد مرتبطة بحضارات و عصور تاريخية مختلفة مثل: عصر ما قبل الإسلام، عصر صدر الإسلام، العصر الأموي، العصر العباسي.",
+                        hours: 132,
+                        competitivePrice: 25,
+                        parallelPrice: 30,
+                        features: [
+                            "دراسة التاريخ الإسلامي بجميع عصوره",
+                            "تحليل الحضارات الإسلامية المختلفة",
+                            "فهم التطورات السياسية والاجتماعية في التاريخ الإسلامي",
+                            "دراسة المصادر التاريخية وتحليلها"
+                        ],
+                        jobFields: [
+                            "وزارة التربية والتعليم",
+                            "الوزارات والسفارات",
+                            "الصحافة والإعلام",
+                            "السياحة",
+                            "المتاحف"
+                        ]
+                    },
+                    {
+                        name: "اللغة الإنجليزية و آدابها",
+                        icon: "fas fa-language",
+                        description: `اللغة الإنجليزية و آدابها: 
+التخصص يحتاج من طلابه قراءة وتحليل، ويعتمد بشكل أساسي على الفهم أكثر من الحفظ، ويحتاح إلى  جهد واهتمام كبيرين
+
+ يتناول التخصص المواد التالية:-
+▫️مواد الأدب الانجليزي:
+من خلال هاي المواد يتعرفوا على عصور من التاريخ الأدبي البريطاني والأمريكي وأشهر الأدباء وكتاباتهم التي من خلال تحليلنا لها نعرف مقاصدهم ورسائلهم منها،
+بالإضافة إلى مواد أخرى،مثل:المسرحية والرواية والقصة القصيرة التي تشتمل على أعمال أدبية منوعة.
+
+▫️الجزء الثاني من مواده هي مواد تركز على اللغة:
+مثل: (المهارات الشفوية، اللسانيات، الصوتيات، النطق، النحو، الكتابة وغيرهم) ومن خلالهم تقوي المحادثة والكتابة والنطق للأصوات وتتحسن.
+`,
+                        hours: 132,
+                        competitivePrice: 30,
+                        parallelPrice: 40,
+                        features: [
+                            "دراسة الأدب الإنجليزي عبر العصور",
+                            "تعميق المعرفة باللغة الإنجليزية وقواعدها",
+                            "تنمية مهارات التحدث والكتابة باللغة الإنجليزية",
+                            "القدرة على تحليل النصوص الأدبية الإنجليزية"
+                        ],
+                        jobFields: [
+                            "التدريس، البنوك، الشركات، الصحافة، المراكز دولية والسياحة أو الترجمة، والعديد من المؤسسات الي بتطلب اللغة الانجليزية",
+                            "مدقق لغوي، باحث ، دليل سياحي،كاتب مُستقل، محرر نصوص"
+                        ]
+                    },
+                    {
+                        name: "الرياضيات",
+                        icon: "fas fa-square-root-alt",
+                        description: "هو العلم الذي يهتم بتحديد العدد، والكم، والقياسات، وقياس الأشكال ويتكون من مفاهيم واصطلاحات تدل على هذه الأمور؛ حيث عرَّف بعض العلماء علم الرياضيات أنَّه لغة العلوم. تُعتبَر الرياضيات بشكل عام من أهم العلوم الأساسية التي لا يُمكن للكثير من العلوم الاستغناء عنها ، يعمل على تنشيط العقل ويزيد من ذكاء الشخص ؛ من خلال التفكير في حل المسائل والتمارين المعقدة والصعبة.",
+                        hours: 132,
+                        competitivePrice: 25,
+                        parallelPrice: 50,
+                        features: [
+                            "دراسة المفاهيم الرياضية الأساسية والمتقدمة",
+                            "تنمية مهارات التفكير المنطقي والتحليلي",
+                            "القدرة على حل المسائل الرياضية المعقدة",
+                            "تطبيق الرياضيات في مجالات مختلفة"
+                        ],
+                        jobFields: [
+                            "العمل في بعض مجالات المحاسبة",
+                            "العمل في المؤسسات والوزارات المالية",
+                            "التدريس",
+                            "شركات الذكاء الاصطناعي والتكنولوجيا",
+                            "الشركات الإحصائية والمشاريع الهندسية"
+                        ]
+                    },
+                    {
+                        name: "الكيمياء",
+                        icon: "fas fa-flask",
+                        description: "العلم الذي يهتم بدراسة المادة من حيث : خواصها ، و بنيتها ، و تركيبها ، و سلوكها ، و تفاعلاتها و التغيرات التي تطرأ عليها ، وهي الأساس لجميع العلوم الطبيعية. إن الكيمياء من العلوم التي تحتاج القدرة على تحمل الروائح المنبعثة من المواد والتفاعلات الكيماوية والسلامة من الأمراض التنفسية .",
+                        hours: 132,
+                        competitivePrice: 25,
+                        parallelPrice: 50,
+                        features: [
+                            "دراسة خواص المادة وتفاعلاتها",
+                            "التعرف على التركيب الكيميائي للمواد",
+                            "إجراء التجارب الكيميائية العملية",
+                            "فهم التغيرات الكيميائية والفيزيائية"
+                        ],
+                        jobFields: [
+                            "التدريس",
+                            "الصناعات الكيميائية والبتروكيميائية",
+                            "الصناعات الصيدلانية و الشركات الدوائية",
+                            "المختبرات العلمية و البحثية البحث الجنائي",
+                            "الشركات الإستخراجية مثل الفوسفات و الإسمنت و البترول"
+                        ]
+                    }
+                ]
+            },
+            education: {
+                name: "كلية العلوم التربوية",
+                majors: [
+                    {
+                        name: "الطفولة المُبكرة",
+                        icon: "fas fa-baby",
+                        description: "أحد تخصصات كلية العلوم التربوية، يعتبر من أهم التخصصات التربوية، إذ يركّز على تنمية الطفل في سنواته الأولى (من الولادة حتى سن 8 سنوات)، وهي الفترة الأكثر تأثيرًا في تكوين الشخصية وتنمية المهارات المستقبلية.",
+                        hours: 132,
+        fieldHours: 18,
+ competitivePrice: 25,
+                        parallelPrice: 35,
+                        features: [
+                            "تواكب التحول الرقمي من خلال إدماج تكنولوجيات التعليم والتربية الحديثة.",
+                            "تسهم في بناء مجتمع مستدام من خلال تأهيل معلمين قادرين على التربية المستنيرة.",
+                            "تركز على تنمية الطفل في سنواته الأولى",
+                            "تعزز النمو الشامل للطفل من جميع النواحي"
+                        ],
+                        jobFields: [
+                            "التعليم في رياض الأطفال والحضانات.",
+                            "العمل كأخصائي دعم ورعاية للطفل.",
+                            "الإرشاد النفسي والسلوكي.",
+                            "العمل في المنظمات الدولية والمحلية المعنية بالطفل.",
+                            "بالإضافة إلى مجالات البحث والتطوير في مجال الطفولة."
+                        ]
+                    },
+                    {
+                        name: "التربية الخاصة",
+                        icon: "fas fa-wheelchair",
+                        description: "أحد تخصصات كلية العلوم التربوية، يركّز التخصص على التعامل مع فئة مختلفة في جميع نواحيها، ونحاول تطوير مهاراتهم حتى يكونوا قادرين على التكيّف مع المجتمع.",
+                        hours: 132,
+                        fieldHours: 12,
+                        competitivePrice: 25,
+                        parallelPrice: 35,
+                        features: [
+                            "التعامل مع فئات مختلفة من ذوي الاحتياجات الخاصة",
+                            "تطوير مهارات الطلبة ذوي الاحتياجات الخاصة",
+                            "تمكين الطلبة من التكيف مع المجتمع",
+                            "تقديم الدعم النفسي والتربوي المناسب"
+                        ],
+                        jobFields: [
+                            "مراكز تعليم وتأهيل ذوي الاحتياجات الخاصة.",
+                            "غرف المصادر في المدارس.",
+                            "العمل بشكل حرّ من خلال تعليم الأطفال منزليًّا."
+                        ]
+                    },
+                    {
+                        name: "معلم صف",
+                        icon: "fas fa-chalkboard-teacher",
+                        description: "أحد تخصصات كلية العلوم التربوية، يهدف إلى إعداد الطالب للتدريس في الصفوف الثلاث الأولى عن طريق تزويده بالكفايات اللازمة في مختلف المواضيع المقررة واستراتيجيات التدريس وتصميم الوسائل التعليمية وإنتاجها وتقييم تعلّم الطلبة وإدارة الصف والتفاعل الصفي وسلوك الطلبة. وأهم شيء إنك قادر على إنشاء وبناء جيل قوي بخلال تدريسك لهذه المراحل العُمرية.",
+                        hours: 132,
+                        fieldHours: 12,
+                        competitivePrice: 25,
+                        parallelPrice: 35,
+                        features: [
+                            "إعداد الطالب للتدريس في الصفوف الثلاث الأولى",
+                            "تزويد الطالب بالكفايات اللازمة في مختلف المواضيع",
+                            "تعلم استراتيجيات التدريس الحديثة",
+                            "القدرة على إدارة الصف والتفاعل مع الطلبة"
+                        ],
+                        jobFields: [
+                            "المدارس في كلا القطاعين.",
+                            "المراكز والمعاهد الخاصة."
+                        ]
+                    },
+                    {
+                        name: "الإرشاد والصحة النفسية",
+                        icon: "fas fa-heart",
+                        description: "أحد تخصصات كلية العلوم التربوية، يُركِّز على الدراسة العلمية للسلوكيات الفردية والجماعية، وبالتالي يحل المشكلات، ويهتم بمراحل نمو الإنسان بأنواعها سواءً كانت عقلية، نفسية، أو جسدية.",
+                        hours: 132,
+                        fieldHours: 12,
+                        competitivePrice: 25,
+                        parallelPrice: 35,
+                        features: [
+                            "الدراسة العلمية للسلوكيات الفردية والجماعية",
+                            "حل المشكلات النفسية والسلوكية",
+                            "الاهتمام بمراحل نمو الإنسان المختلفة",
+                            "تقديم الدعم النفسي والإرشادي"
+                        ],
+                        jobFields: [
+                            "المدارس في كلا القطاعين.",
+                            "منظمات حقوق الإنسان والمؤسسات المختصة بالعناية بالأسرة والطفل.",
+                            "مراكز الإصلاح والتأهيل."
+                        ]
+                    }
+                ]
+            },
+            fiqh: {
+                name: "كلية المذاهب الفقهية",
+                majors: [
+                    {
+                        name: "الفقه الحنفي",
+                        icon: "fas fa-book",
+                        description: "هو أحد تخصصات كلية المذاهب في جامعة العلوم الإسلامية، صاحبهُ الإمام أبو حنيفة النعمان بن ثابت. يتعلم الطالب من خلاله ما يَخص المذهب من أصول الفقه، العبادات، المعاملات، الأحوال الشخصية، القضاء والسير على مذهب الإمام أبي حنيفة.",
+                        hours: 132,
+                        competitivePrice: 10,
+                        parallelPrice: 10,
+                        features: [
+                            "دراسة المذهب الحنفي بأصوله وفروعه",
+                            "التعرف على أحكام العبادات والمعاملات",
+                            "دراسة الأحوال الشخصية والقضاء",
+                            "فهم أصول الفقه الحنفي"
+                        ],
+                        jobFields: [
+                            "وزارة الأوقاف",
+                            "المعاهد الشرعية",
+                            "وزارة التربية و التعليم",
+                            "القضاء والافتاء"
+                        ]
+                    },
+                    {
+                        name: "الفقه المالكي",
+                        icon: "fas fa-book-open",
+                        description: "هو أحد تخصصات كلية المذاهب في جامعة العلوم الإسلامية، يتميز المذهب بأنه مذهب أهل المدينة، و صاحبه الإمام مالك بن أنس رحمه الله تعالى، يتعلم الطالب من خلاله ما يخُص المذهب من عبادات، معاملات، أحوال شخصية،جنايات، وأصول الفقه وغيرها من المواد، وهو أحد المذاهب المُعتمدة بالافتاء بالمملكة الأردنية الهاشمية ويُعامَل معاملة بقيّة المذاهب بالتوظيف في ديوان الخدمة المدنية وغيرها.",
+                        hours: 132,
+                        competitivePrice: 10,
+                        parallelPrice: 10,
+                        features: [
+                            "دراسة المذهب المالكي بأصوله وفروعه",
+                            "التعرف على أحكام العبادات والمعاملات",
+                            "دراسة الأحوال الشخصية والجنايات",
+                            "فهم أصول الفقه المالكي"
+                        ],
+                        jobFields: [
+                            "وزارة الأوقاف",
+                            "المعاهد الشرعية",
+                            "الرقابة الإسلامية في المصارف الشرعية",
+                            "وزارة التربية و التعليم",
+                            "القضاء و الافتاء"
+                        ]
+                    },
+                    {
+                        name: "الفقه الشافعي",
+                        icon: "fas fa-book-reader",
+                        description: "هو أحد تخصصات كلية المذاهب في جامعة العلوم الإسلامية، صاحبهُ الإمام محمد بن إدريس الشافعي، يتعلم الطالب من خلاله ما يخص المذهب الشافعي من عبادات معاملات،أحوال شخصية،جنايات،قضاء وإفتاء، وأصول الفقه،وغيرها من المواد.",
+                        hours: 132,
+                        competitivePrice: 10,
+                        parallelPrice: 10,
+                        features: [
+                            "دراسة المذهب الشافعي بأصوله وفروعه",
+                            "التعرف على أحكام العبادات والمعاملات",
+                            "دراسة الأحوال الشخصية والجنايات",
+                            "فهم أصول الفقه الشافعي"
+                        ],
+                        jobFields: [
+                            "دوائر الافتاء المختلفة",
+                            "القضاء الشرعي",
+                            "الإمامة والخطابة والوعظ والارشاد في وزارة الاوقاف",
+                            "التدريس في مدارس وزارة التربية والتعليم",
+                            "مختلف المعاهد والمراكز الشرعية و دور تحفيظ القرآن الكريم وتعليم العلوم الشرعية",
+                            "مراكز البحوث والدراسات في العلوم الإسلامية"
+                        ]
+                    },
+                    {
+                        name: "الإصلاح الأسري",
+                        icon: "fas fa-home",
+                        description: "هو تخصص تابع لكلية الفقه الحنفي،ورسالته تعليم العلوم الشرعية السنيّة الحنفية بمنهجها الأصيل بالطريقة الأكاديمية المعاصرة محليًا ودوليًا، والتركيز على الجانب الفقهي والسلوكي، وتربية النفس، وأثر انعكاس الجانب العملي للفقه على الجانب الأدبي والتربوي للفرد والمجتمع، علمًا وعملًا، نظرًا وتطبيقًا، وفق منهج تزكوي سنّي سليم.",
+                        hours: 132,
+                        competitivePrice: 10,
+                        parallelPrice: 10,
+                        features: [
+                            "تحويل المنهاج العلمي الشرعي من الأسلوب التقليدي إلى النظام الأكاديمي المعاصر.",
+                            "الفهم الناضج لتراث الأمة الشرعي وإظهار يسر الإسلام العملي حياة ومعاملة ومساواة.",
+                            "القضاء بما يحقق العدالة والإفتاء بما يتناسب واقع المجتمعات وحاجته.",
+                            "إبراز جوانب الإسلام السياسية والاقتصادية والدعوة الدينية المعتدلة في حفظ الفرد والدولة.",
+                            "الارتقاء السلوكي والتهذيب الأخلاقي والنضج الفكري للدارس والمجتمع."
+                        ],
+                        jobFields: [
+                            "الرقابة الشرعية.",
+                            "ممارسة المحاماة الشرعية.",
+                            "سلك القضاء الشرعي.",
+                            "التدريس.",
+                            "الإمامة والخطابة والوعظ.",
+                            "الإفتاء في جميع مؤسساته.",
+                            "الاستشارات الزوجية والاجتماعية."
+                        ]
+                    },
+                    {
+                        name: "القضاء والافتاء",
+                        icon: "fas fa-gavel",
+                        description: "هو تخصص تابع لكليّة الفقه الحنفي، ورسالتهُ تعليم العلوم الشرعية السنية الحنفية بمنهجها الأصيل بالطريقة الأكاديمية المعاصرة محليًا ودوليًا، والتركيز على الجانب الفقهي، قضاءً وإفتاءً، أصولًا وفروعًا، تقنينًا وتفريعًا، تطبيقًا وتعليمًا، ببيان المحاور الرئيسة في أصول المحاكمات، وتصوّر القضايا والأحكام والتنفيذ في القضاء، ومعرفة درجات التقاضي وأحكام التَّرِكات.",
+                        hours: 132,
+                        competitivePrice: 10,
+                        parallelPrice: 10,
+                        features: [
+                            "تحويل المنهاج العلمي الشرعي من الأسلوب التقليدي إلى النظام الأكاديمي المعاصر.",
+                            "الفهم الناضج لتراث الأمة الشرعي وإظهار يُسر الإسلام العملي حياة ومعاملة ومساواة.",
+                            "القضاء بما يحقق العدالة والإفتاء بما يتناسب واقع المجتمعات وحاجته.",
+                            "إبراز جوانب الإسلام السياسية، والاقتصادية، والدعوة الدينية المعتدلة في حفظ الفرد والدولة.",
+                            "الارتقاء السلوكي والتهذيب الأخلاقي والنضج الفكري للدارس والمجتمع."
+                        ],
+                        jobFields: [
+                            "سلك القضاء الشرعي.",
+                            "ممارسة المحاماة الشرعية.",
+                            "تدريس التربية الإسلامية.",
+                            "الإمامة والخطابة والوعظ.",
+                            "الإفتاء في مؤسساته المختلفة.",
+                            "الرقابة الشرعية."
+                        ]
+                    }
+                ]
+            },
+            "arts-architecture": {
+                name: "كلية الفنون والعمارة الإسلامية",
+                majors: [
+                    {
+                        name: "الفنون الإسلامية والتطبيقية",
+                        icon: "fas fa-palette",
+                        description: "هو تخصص موجود فقط في جامعة العلوم الإسلامية في الأردن. التخصص بجمع بين الفن الإسلامي والتصميم الداخلي وفيه مساقات للصنائع اليدوية و بأول سنة ونصف تكون دراسة تحضيرية، يتم دراسة كل أنواع الفنون الإسلامي و التصميم الداخلي: التصميم الداخلي (رسم معماري، رسم حر، أثاث..)، الفنون الإسلامية (خط عربي، زخارف نباتية (توريق وتذهيب) وهندسية(هندسة فاضلة)، فن الزليج(أعمال الخزف والطين). بعد السنة التحضيرية، يقدّم الطالب أعماله على دكاترته ورئيس القسم والعميد ومن ثم يختار الفرع الذي أحبّ أن يتخصص فيه، ويتخصص على هذا الأساس.",
+                        hours: 132,
+                        competitivePrice: 30,
+                        parallelPrice: 40,
+                        features: [
+                            "الجمع بين الفن الإسلامي والتصميم الداخلي",
+                            "دراسة الصنائع اليدوية الإسلامية",
+                            "التخصص في الخط العربي والزخارف الإسلامية",
+                            "دراسة فنون الخزف والطين"
+                        ],
+                        jobFields: [
+                            "التدريس الحكومي والخاص",
+                            "شركات هندسية أو مصانع",
+                            "وأهم ميزة: أنك تستطيع فتح مشروعك الخاص سواء من البيت، أو من المشغل"
+                        ]
+                    }
+                ]
+            },
+            business: {
+                name: "كلية المال والأعمال",
+                majors: [
+                    {
+                        name: "المحاسبة",
+                        icon: "fas fa-file-invoice-dollar",
+                        description: "هو أحد تخصصات كلية المال والأعمال وهي عملية تسجيل المعلومات و ترتيبها وتلخيصها وتقديهما بشكل واضح ومفهوم، حيث يمكن قراءتها و فهمها من قبل الشركة أو الجهة المهتمة كالمستثمرين مثلًا، بحيث تكون القوائم و التقارير المقدمة من المحاسب مرتبطة بمستوى أداء الشركة.",
+                        hours: 132,
+                        competitivePrice: 40,
+                        parallelPrice: 60,
+                        features: [
+                            "تسجيل المعلومات المالية وترتيبها",
+                            "إعداد التقارير المالية بشكل واضح ومفهوم",
+                            "ربط التقارير المالية بأداء الشركة",
+                            "القدرة على تحليل البيانات المالية"
+                        ],
+                        jobFields: [
+                            "مدير أو مدقق حسابات",
+                            "البنوك",
+                            "وزارة المالية",
+                            "دوائر ضريبة الدخل",
+                            "محاسب قانوني",
+                            "مدقق حسابات داخلي أو خارجي",
+                            "مستشار مالي"
+                        ]
+                    },
+                    {
+                        name: "نظم المعلومات الإدارية",
+                        icon: "fas fa-laptop",
+                        description: "هو أحد تخصصات كلية المال والأعمال، وهو خليط بين إدارة الأعمال وال IT. يعتبر ضمن التخصصات المطلوبة لدى العديد من الدول، تحديدًا للدول المتقدمة.",
+                        hours: 135,
+                        fieldHours: 3,
+                        competitivePrice: 45,
+                        parallelPrice: 50,
+                        features: [
+                            "الجمع بين إدارة الأعمال وتكنولوجيا المعلومات",
+                            "تطوير نظم المعلومات الإدارية",
+                            "تحليل احتياجات المؤسسات من نظم المعلومات",
+                            "تطبيق التكنولوجيا في تحسين العمليات الإدارية"
+                        ],
+                        jobFields: [
+                            "اخصائي شبكات حاسوب ومواقع انترنت",
+                            "مبرمج حاسوب",
+                            "مصمم قواعد بيانات أو نظم معلومات",
+                            "محلل نظم خبيرة ومعلومات",
+                            "مدير ومطور أعمال إلكترونية",
+                            "خبير مواقع إلكترونية ووسائط متعددة"
+                        ]
+                    },
+                    {
+                        name: "المصارف الإسلامية",
+                        icon: "fas fa-hand-holding-usd",
+                        description: "هو أحد تخصصات كلية المال والأعمال ويهدف الى اعداد طلبة يجمعون بين العلوم الاقتصادية وعلوم الشريعة الاسلامية حيث يدرس الطلبة مبادئ ومرتكزات الاقتصاد الاسلامي ومجالات تطبيقها ونشاطاتها الاستثمارية. تقوم دارسة هذا التخصص على رفد المجتمع بالكفاءات العلمية في مجال الصرافة الإسلامية والتغلب على المشكلات والعقبات الاقتصادية في المجتمع بالاستفادة من الخبرة المصرفية العملية، والعمق البحثي الأكاديمي.",
+                        hours: 138,
+                        competitivePrice: 30,
+                        parallelPrice: 40,
+                        features: [
+                            "الجمع بين العلوم الاقتصادية وعلوم الشريعة الإسلامية",
+                            "دراسة مبادئ ومرتكزات الاقتصاد الإسلامي",
+                            "التعرف على مجالات تطبيق الاقتصاد الإسلامي",
+                            "فهم نشاطات المصارف الإسلامية الاستثمارية"
+                        ],
+                        jobFields: [
+                            "التدريس",
+                            "البنوك والمصارف الإسلامية",
+                            "شركات التأمين",
+                            "شركات الصرافة"
+                        ]
+                    },
+                    {
+                        name: "العلوم المالية والمصرفية",
+                        icon: "fas fa-coins",
+                        description: "هو أحد تخصصات كلية المال والأعمال، ويهدف هذا القسم إلى تزويد الطلاب بمعارف متنوعة ومهارات تطبيقية تؤهلهم بصورة مناسبة للتفاعل مع بيئة الأعمال الحديثة، وذلك من خلال الربط بين المفاهيم المالية والاقتصادية ووقائع الأعمال في البنوك والأسواق المالية وشركات التامين، بحيث يستطيع الخريجون في هذا التخصص الالتحاق بالعمل في مختلف قطاعات النشاط الاقتصادي الحكومي والخاص بما فيها مؤسسات الجهاز المصرفي من بنك مركزي، وبنوك تجارية وبنوك إسلامية بالإضافة إلى شركات التأمين وشركات الاستثمار وغيرها من المؤسسات المالية.",
+                        hours: 132,
+                        fieldHours: 3,
+                        competitivePrice: 30,
+                        parallelPrice: 50,
+                        features: [
+                            "تزويد الطلاب بمعارف متنوعة في العلوم المالية",
+                            "تنمية المهارات التطبيقية في المجال المصرفي",
+                            "القدرة على التفاعل مع بيئة الأعمال الحديثة",
+                            "فهم المفاهيم المالية والاقتصادية وتطبيقاتها"
+                        ],
+                        jobFields: [
+                            "المصارف على اختلاف أنواعها",
+                            "شركات الاستثمار",
+                            "المؤسسات المالية عامة",
+                            "الأسواق المالية",
+                            "الدوائر المالية التابعة للوزارات والدوائر الحكومية",
+                            "الدوائر المالية التابعة لشركات الأعمال",
+                            "مكاتب وشركات الاستشارات المالية",
+                            "العمل المستقل في مجال الاستثمار وإدارة المحافظ الاستثمارية"
+                        ]
+                    },
+                    {
+                        name: "إدارة الأعمال",
+                        icon: "fas fa-briefcase",
+                        description: "أحد تخصصات كلية المال والأعمال، يُعبِّر عن العمليات، الأنشطة والمهام التي تنظّم الأعمال بجميع أنواعها مثل أعمال الشركات، المؤسسات، والمنظمات، وتشمل هذه الأعمال عمليات الرقابة، التخطيط، التنظيم، الإشراف، القيادة والمتابعة.",
+                        hours: 132,
+                        competitivePrice: 40,
+                        parallelPrice: 50,
+                        features: [
+                            "تنظيم العمليات والأنشطة في المؤسسات",
+                            "التخطيط والرقابة على الأعمال",
+                            "الإشراف والقيادة في المؤسسات",
+                            "متابعة وتقييم أداء المؤسسات"
+                        ],
+                        jobFields: [
+                            "إداري أو مُساعد إداري",
+                            "مدير قسم (مبيعات، موارد بشرية، إنتاج، مشتريات)",
+                            "مستشار إداري"
+                        ]
+                    }
+                ]
+            },
+            law: {
+                name: "كلية الشيخ نوح والقضاة للشريعة والقانون",
+                majors: [
+                    {
+                        name: "الفقه وأصوله",
+                        icon: "fas fa-balance-scale",
+                        description: "هو تخصص يجعلك مُطّلع على أقوال الفقهاء الأربعة في جميع مسائل الفقه، والتعرّف على الأحكام الشرعية في مجال العبادات، المعاملات، الأحوال الشخصية، الأصول في الفقه الإسلامي من كتاب، سنة، إجماع، وقياس، ويسلّط الضوء على قضايا السياسة الشرعية مثل: نظام الحكم والمال، ونظام الإدارة في الإسلام، والوقوف على المسائل المعاصرة في الفتوى،والفقه، والحكم المناسب لها، والتخصص يشترك مع تخصص القانون بموادٍ كثيرة.",
+                        hours: 132,
+                        competitivePrice: 15,
+                        parallelPrice: 15,
+                        features: [
+                            "الإطلاع على أقوال الفقهاء الأربعة",
+                            "التعرف على الأحكام الشرعية في مختلف المجالات",
+                            "دراسة أصول الفقه الإسلامي",
+                            "فهم قضايا السياسة الشرعية"
+                        ],
+                        jobFields: [
+                            "المحاكم الشرعية",
+                            "الرقابة الشرعية",
+                            "دوائر الإفتاء ووزراة الأوقاف",
+                            "التدريس",
+                            "الإمامة والخطابة للذكور"
+                        ]
+                    },
+                    {
+                        name: "القانون",
+                        icon: "fas fa-gavel",
+                        description: "هو تخصص له علاقة كبيرة بالحياة الاجتماعية، ينظّم سلوك الناس، والعلاقة بينهم،والعلاقة بين الدولة وأفرادها أو الدولة والدول الأخرى الخ... .",
+                        hours: 141,
+                        competitivePrice: 30,
+                        parallelPrice: 40,
+                        features: [
+                            "تنظيم السلوك والعلاقات في المجتمع",
+                            "فهم العلاقة بين الدولة والأفراد",
+                            "دراسة العلاقات الدولية",
+                            "القدرة على تطبيق القوانين والأنظمة"
+                        ],
+                        jobFields: [
+                            "محامي، وذلك بعد تدريب لمدة سنتين في مكتب محاماة معتمد للنقابة و اجتياز امتحانات النقابة الكتابية و الشفوية و أخذ رخصة ممارسة المهنة من النقابة",
+                            "قاضي، بعد دخول المعهد القضائي و الذي تحتاج دخوله أن تكون من أوائل دفعتك و غيرها من الشروط",
+                            "مستشار قانوني و هنا تحتاج فقط لشهادة البكالوريوس",
+                            "موظف بالشركات أو الوزارات أو الدوائر الحكومية المكاتب بالقسم القانوني",
+                            "مؤسسات حقوق الإنسان"
+                        ]
+                    }
+                ]
+            },
+            daawa: {
+                name: "كلية الدعوة وأصول الدين",
+                majors: [
+                    {
+                        name: "أصول الدين",
+                        icon: "fas fa-mosque",
+                        description: `هو تخصص يهدف إلى تعميق فهم العقيدة الإسلامية، علوم القرآن،الحديث، والفكر الإسلامي، مع تطوير مهارات التحليل النقدي، وتطبيق الدين في العصر الحديث.
+و يزوّد الطلاب بالعلم الشرعي المتخصص في استنباط الأحكام وتحليل النصوص، ويدرس موادًا مثل: علوم القرآن، التفسير، الحديث، والفلسفة الإسلامية؛ لإعداد متخصصين قادرين على مواجهة التحديات الفكرية بأسس فقهية متينة.`,
+                        hours: 132,
+                        competitivePrice: 15,
+                        parallelPrice: 15,
+                        features: [
+                            "تعميق فهم العقيدة الإسلامية",
+                            "دراسة علوم القرآن والحديث",
+                            "تطوير مهارات التحليل النقدي",
+                            "تطبيق الدين في العصر الحديث"
+                        ],
+                        jobFields: [
+                            "التدريس",
+                            "مراكز تحفيظ القرآن، والأوقاف",
+                            "مجال البحث العلمي، وإمكانية أعطاء دورات بالمراكز التدريبية",
+                            "الإمامة والخطابة للذكور"
+                        ]
+                    },
+                    {
+                        name: "الأداء الصوتي والتجويد",
+                        icon: "fas fa-microphone-alt",
+                        description: `هو تخصص شرعي تابع لكلية الدعوة وأصول الدين، يجمع بين قواعد التجويد ومهارات الأداء النغمي عملًا بقول النبي : «زينوا القرآن باصواتكم»، واقتداءً بأصحاب الصوت الندي بالقرآن، مثل: أبي موسى الأشعري -رضي الله عنه- الذي أوتيَ مزمارًا من مزاميرِ آل داود -عليه السلام- ، وحينما علم بسماع النبي ﷺ له قال : لو علمتُ لحبرته تحبيرًا.
+
+هدف التخصص:
+يهدف إلى إنشاء حاضنة علمية لأصحاب الأصوات الحسنة، وتطويرها في قالب علمي أكاديمي شرعي لتزويد المجتمع والمؤسسات الدينية والتعليمية والإعلامية بالقُرّاء المتقنين، ومعلمي القرآن الحاذقين، والمؤذنين البارعين، والأئمة الماهرين.
+
+ولتحقيق هذا الهدف تم وضع خطة دراسية تفصيلية يقوم من خلالها الطالب بدراسة مواد التلاوة والتجويد نظرياً وعملياً، وحفظ بعض أجزاء القرآن، مع التعرف على بعض أحكام القراءات، ثم دراسة المقامات الصوتية الرئيسية والفرعية نظرياً وعملياً، مع التطبيق على الأذان والقرآن والموشحات والأناشيد، بالإضافة إلى دراسة مواد أساسية في علوم الشريعة، مثل: التفسير والفقه والحديث والعقيدة والسيرة النبوية والتزكية.`,
+                        hours: 132,
+                        competitivePrice: 10,
+                        parallelPrice: 10,
+                        features: [
+                            "الجمع بين قواعد التجويد ومهارات الأداء النغمي",
+                            "دراسة التلاوة والتجويد نظرياً وعملياً",
+                            "تعلم المقامات الصوتية الرئيسية والفرعية",
+                            "التطبيق على الأذان والقرآن والموشحات والأناشيد"
+                        ],
+                        jobFields: [
+                            "التدريس",
+                            "الإمامة والخطابة للذكور",
+                            "وزارة الأوقاف"
+                        ]
+                    },
+                    {
+                        name: "القراءات القرآنية",
+                        icon: "fas fa-book-quran",
+                        description: `هو تخصص مُعتمد من وزارة التعليم العالي، ويقدّم عدّة مواضيع..
+
+مواضيع التخصص:
+تعريف عام بالقراءات والقرّاء. 
+عرض القرآن الكريم من أوّله إلى آخره بالقراءات العشر. 
+رسم المصحف وضبطه وتاريخه.
+الدّراسات الصوتية في التجويد. 
+دفع الشبهات عن القرآن الكريم والقراءات وغيرها بالإضافة إلى مواد أخرى تهتم بِـ : أصول الدين والفقه والتفسير والحديث والدعوة والسيرة والبلاغة والنحو.`,
+                        hours: 132,
+                        competitivePrice: 15,
+                        parallelPrice: 15,
+                        features: [
+                            "دراسة القراءات القرآنية المختلفة",
+                            "التعرف على رسم المصحف وضبطه",
+                            "دراسات صوتية في التجويد",
+                            "دفع الشبهات عن القرآن الكريم والقراءات"
+                        ],
+                        jobFields: [
+                            "التدريس",
+                            "الإمامة والخطابة للذكور",
+                            "وزارة الأوقاف"
+                        ]
+                    }
+                ]
+            },
+            it: {
+                name: "كلية تكنولوجيا المعلومات",
+                majors: [
+                    {
+                        name: "علوم الحاسوب",
+                        icon: "fas fa-laptop-code",
+                        description: "علوم الكمبيوتر أو الحوسبة هو دراسة العمليات التي تتفاعل مع البيانات والتي يمكن تمثيلها كبيانات في شكل برامج. يتيح استخدام الخوارزميات لمعالجة المعلومات الرقمية وتخزينها وإبلاغها. يدرس عالم الحاسوب نظرية الحوسبة وممارسة تصميم أنظمة البرمجيات.",
+                        hours: 132,
+                        fieldHours: 3,
+                        projectHours: 3,
+                        competitivePrice: 45,
+                        parallelPrice: 60,
+                        features: [
+                            "دراسة نظرية الحوسبة وممارسة تصميم أنظمة البرمجيات",
+                            "استخدام الخوارزميات لمعالجة المعلومات الرقمية",
+                            "القدرة على تخزين وإبلاغ المعلومات",
+                            "تصميم وتطوير أنظمة البرمجيات"
+                        ],
+                        jobFields: [
+                            "مبرمج", "التدريس", "محلل معلومات", "مندوب مبيعات لمعدات وبرمجيات الحاسوب",
+                            "مطور نظم", "مدير شبكة حاسوبية", "مدير قواعد بيانات", "مشرف مختبر",
+                            "باحث", "صيانة أجهزة الحاسوب", "عمل حر"
+                        ]
+                    },
+                    {
+                        name: "أمن وسرية الشبكات والمعلومات",
+                        icon: "fas fa-shield-alt",
+                        description: "يُعرَّف تخصص \"أمن الشبكات\"، والذي يُطلَق عليه باللغة الإنجليزية \"Cyber Security\"، أو في بعض الأحيان \"Network Security\"، أنَّه توفير الحماية القصوى للبيانات والمعلومات في الشبكات بهدف تجنُّب المخاطر التي قد تلحق بها مثل الإختراق. ومن الجدير بالذكر أنَّ هذه المخاطر قد تكون داخلية، أم خارجية. ولهذا، يُوجَد وسائل وأدوات لازمة لحمايتها.",
+                        hours: 132,
+                        fieldHours: 3,
+                        projectHours: 3,
+                        competitivePrice: 45,
+                        parallelPrice: 60,
+                        features: [
+                            "توفير الحماية القصوى للبيانات والمعلومات في الشبكات",
+                            "تجنب المخاطر الداخلية والخارجية",
+                            "استخدام وسائل وأدوات حماية المعلومات",
+                            "القدرة على مواجهة التهديدات الإلكترونية"
+                        ],
+                        jobFields: [
+                            "أخصائي آمن شبكات", "مستشار في مجال آمن الشبكات", "آمن أنظمة التشغيل",
+                            "آمن قواعد البيانات", "الجرائم الإلكترونية والتحقيقات الجنائية",
+                            "شركات البرمجة", "أخصائي الدعم الفني"
+                        ]
+                    },
+                    {
+                        name: "هندسة البرمجيات",
+                        icon: "fas fa-code",
+                        description: "هو عبارة عن عملية تحليل احتياجات المستخدم، وتصميم وبناء واختبار تطبيقات المستخدم النهائي، والتي تلبي هذه الاحتياجات من خلال استخدام لغات البرمجة. وهو تطبيق المبادئ الهندسية على تطوير البرمجيات، على عكس البرمجة البسيطة، تُستخدم هندسة البرمجيات لأنظمة البرامج الأكبر والأكثر تعقيدًا، و تُستخدم كنُظم مهمة للشركات والمؤسسات.",
+                        hours: 132,
+                        fieldHours: 3,
+                        projectHours: 3,
+                        competitivePrice: 45,
+                        parallelPrice: 60,
+                        features: [
+                            "تحليل احتياجات المستخدم وتصميم التطبيقات",
+                            "بناء واختبار تطبيقات المستخدم النهائي",
+                            "استخدام لغات البرمجة المختلفة",
+                            "تطبيق المبادئ الهندسية في تطوير البرمجيات"
+                        ],
+                        jobFields: [
+                            "مُبرمج",
+                            "متخصص دعم خدمات تكنولوجيا المعلومات",
+                            "متخصص شبكات واتصالات",
+                            "مُتخصص في الحماية الأمنية للمعلومات",
+                            "الذكاء الاصطناعي والواقع المعزز",
+                            "مدير قاعدة بيانات",
+                            "مجال البُحوث والتطوير",
+                            "مُحلّل نُظم معلومات",
+                            "مُعلّم",
+                            "عمل حُر"
+                        ]
+                    },
+                    {
+                        name: "نظم شبكات الحاسوب",
+                        icon: "fas fa-network-wired",
+                        description: "هو نظام لربط جهازين أو أكثر باستخدام إحدى تقنيات نُظم الإتصالات من أجل تبادل المعلومات والموارد والبيانات بينها، المتاحة للشبكة مثل الآلة، الطابعة،أو البرامج التطبيقية أيًّا كان نوعها وكذلك تسمح بالتواصل المباشر بين المستخدمين. وبشكل عام تعتبر دراسة شبكات الحاسوب أحد فروع علم الاتصالات.",
+                        hours: 132,
+                        fieldHours: 3,
+                        projectHours: 3,
+                        competitivePrice: 45,
+                        parallelPrice: 60,
+                        features: [
+                            "ربط الأجهزة باستخدام تقنيات الاتصالات",
+                            "تبادل المعلومات والموارد والبيانات",
+                            "إتاحة الموارد المشتركة في الشبكة",
+                            "تمكين التواصل المباشر بين المستخدمين"
+                        ],
+                        jobFields: [
+                            "مُدير مشروع تكنولوجيا المعلومات",
+                            "محلل آمن تكنولوجيا المعلومات",
+                            "مهندس خدمات تكنولوجيا المعلومات",
+                            "مدير الشبكة",
+                            "مُهندس الشبكة",
+                            "مُحلل النظم",
+                            "مهندس تقنية المعلومات",
+                            "أخصائي الدعم الفني"
+                        ]
+                    }
+                ]
+            }
+        };
+        
+        // عناصر DOM
+        const menuToggle = document.getElementById('menu-toggle');
+        const sideMenu = document.getElementById('side-menu');
+        const overlay = document.getElementById('overlay');
+        const faqSection = document.getElementById('faq-section');
+        const transportSection = document.getElementById('transport-section');
+        const collegesSection = document.getElementById('colleges-section');
+        const examsSection = document.getElementById('exams-section');
+        const grantsSection = document.getElementById('grants-section');
+        const aboutLink = document.getElementById('about-link');
+        const ratingLink = document.getElementById('rating-link');
+        const loansBtn = document.getElementById('loans-btn');
+        const grantsBtn = document.getElementById('grants-btn');
+        const backToGrants = document.getElementById('back-to-grants');
+        const backToGrantsDetails = document.getElementById('back-to-grants-details');
+        const loadingOverlay = document.getElementById('loading-overlay');
+        
+        const faqModal = document.getElementById('faq-modal');
+        const transportModal = document.getElementById('transport-modal');
+        const collegesModal = document.getElementById('colleges-modal');
+        const majorsModal = document.getElementById('majors-modal');
+        const examsModal = document.getElementById('exams-modal');
+        const grantsModal = document.getElementById('grants-modal');
+        const loansModal = document.getElementById('loans-modal');
+        const grantsDetailsModal = document.getElementById('grants-details-modal');
+        const aboutModal = document.getElementById('about-modal');
+        const ratingModal = document.getElementById('rating-modal');
+        const imageModal = document.getElementById('image-modal');
+        
+        const closeModalButtons = document.querySelectorAll('.close-modal');
+        const backButtons = document.querySelectorAll('.back-btn');
+        const backToCollegesBtn = document.getElementById('back-to-colleges');
+        const collegeCards = document.querySelectorAll('.college-card');
+        const stars = document.querySelectorAll('.fa-star');
+        const ratingText = document.getElementById('rating-text');
+        const submitRatingBtn = document.getElementById('submit-rating');
+        const closeImageModal = document.querySelector('.close-image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const imageButtons = document.querySelectorAll('.image-btn');
+        
+        // إخفاء مؤشر التحميل بعد تحميل الصفحة
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingOverlay.classList.add('hidden');
+            }, 1500);
+        });
+        
+        // فتح/إغلاق القائمة الجانبية
+        menuToggle.addEventListener('click', () => {
+            sideMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+        
+        overlay.addEventListener('click', () => {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        // فتح النوافذ المنبثقة
+        faqSection.addEventListener('click', () => {
+            faqModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        transportSection.addEventListener('click', () => {
+            transportModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        collegesSection.addEventListener('click', () => {
+            collegesModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        examsSection.addEventListener('click', () => {
+            examsModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        grantsSection.addEventListener('click', () => {
+            grantsModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        aboutLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            aboutModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        // زر التقييم يفتح رابط جوجل فورم مباشرة
+        ratingLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open('https://docs.google.com/forms/d/e/1FAIpQLSdHoIu0G2KGH2fculiku5nrUtsa3VFGOsgw1z_0rAkAWFy0xA/viewform?usp=header', '_blank');
+        });
+        
+        // فتح نافذة القروض
+        loansBtn.addEventListener('click', () => {
+            grantsModal.style.display = 'none';
+            loansModal.style.display = 'block';
+        });
+        
+        // فتح نافذة المنح
+        grantsBtn.addEventListener('click', () => {
+            grantsModal.style.display = 'none';
+            grantsDetailsModal.style.display = 'block';
+        });
+        
+        // العودة من القروض إلى المنح والقروض
+        backToGrants.addEventListener('click', () => {
+            loansModal.style.display = 'none';
+            grantsModal.style.display = 'block';
+        });
+        
+        // العودة من المنح إلى المنح والقروض
+        backToGrantsDetails.addEventListener('click', () => {
+            grantsDetailsModal.style.display = 'none';
+            grantsModal.style.display = 'block';
+        });
+        
+        // إغلاق النوافذ المنبثقة
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // العودة للصفحة الرئيسية
+        backButtons.forEach(button => {
+            if (button.id !== 'back-to-grants' && button.id !== 'back-to-grants-details') {
+                button.addEventListener('click', () => {
+                    const modal = button.closest('.modal');
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+        
+        // العودة لقائمة الكليات من نافذة التخصصات
+        backToCollegesBtn.addEventListener('click', () => {
+            majorsModal.style.display = 'none';
+            collegesModal.style.display = 'block';
+        });
+        
+        // فتح نافذة التخصصات عند النقر على كلية
+        collegeCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const collegeId = card.getAttribute('data-college');
+                const collegeData = collegesData[collegeId];
+                
+                if (collegeData) {
+                    // تحديث عنوان النافذة
+                    document.getElementById('majors-title').textContent = `تخصصات ${collegeData.name}`;
+                    
+                    // إضافة عنوان خاص لتخصصات أصول الدين
+                    if (collegeId === 'law') {
+                        document.getElementById('majors-title').textContent = `تخصصات أصول الدين - ${collegeData.name}`;
+                    }
+                    
+                    // تعبئة التخصصات
+                    const majorsContainer = document.getElementById('majors-container');
+                    majorsContainer.innerHTML = '';
+                    
+                    // إنشاء شبكة التخصصات
+                    const majorsGrid = document.createElement('div');
+                    majorsGrid.className = 'majors-grid';
+                    
+                    collegeData.majors.forEach(major => {
+                        if (typeof major === 'object') {
+                            // تخصص مع معلومات مفصلة - زر
+                            const majorButton = document.createElement('button');
+                            majorButton.className = 'major-btn';
+                            majorButton.setAttribute('data-major', JSON.stringify(major));
+                            
+                            majorButton.innerHTML = `
+                                <i class="${major.icon}"></i>
+                                <div class="major-title">${major.name}</div>
+                                <div class="major-subtitle">اضغط لعرض التفاصيل الكاملة</div>
+                            `;
+                            
+                            majorsGrid.appendChild(majorButton);
+                        } else {
+                            // تخصص عادي - إنشاء زر
+                            const majorButton = document.createElement('button');
+                            majorButton.className = 'major-btn';
+                            
+                            // تحديد الأيقونة المناسبة حسب اسم التخصص
+                            let icon = "fas fa-graduation-cap";
+                            if (major.includes("إدارة") || major.includes("تسويق")) {
+                                icon = "fas fa-briefcase";
+                            } else if (major.includes("شريعة") || major.includes("قانون")) {
+                                icon = "fas fa-balance-scale";
+                            } else if (major.includes("تربية") || major.includes("تعليم")) {
+                                icon = "fas fa-chalkboard-teacher";
+                            }
+                            
+                            majorButton.innerHTML = `
+                                <i class="${icon}"></i>
+                                <div class="major-title">${major}</div>
+                                <div class="major-subtitle">اضغط للمزيد من المعلومات</div>
+                            `;
+                            
+                            majorsGrid.appendChild(majorButton);
+                        }
+                    });
+                    
+                    // إضافة شبكة التخصصات إلى الحاوية
+                    if (majorsGrid.children.length > 0) {
+                        majorsContainer.appendChild(majorsGrid);
+                    }
+                    
+                    // إضافة مستمعي الأحداث لأزرار التخصصات
+                    const majorButtons = majorsContainer.querySelectorAll('.major-btn');
+                    majorButtons.forEach(button => {
+                        button.addEventListener('click', () => {
+                            const majorData = button.getAttribute('data-major');
+                            
+                            if (majorData) {
+                                // تخصص مفصل - فتح صفحة جديدة
+                                const major = JSON.parse(majorData);
+                                openMajorDetailsModal(major);
+                            } else {
+                                // تخصص عادي - فتح صفحة افتراضية
+                                const majorName = button.querySelector('.major-title').textContent;
+                                openSimpleMajorModal(majorName);
+                            }
+                        });
+                    });
+                    
+                    // إظهار نافذة التخصصات
+                    collegesModal.style.display = 'none';
+                    majorsModal.style.display = 'block';
+                }
+            });
+        });
+        
+        // فتح صفحة تفاصيل التخصص المفصل
+        function openMajorDetailsModal(major) {
+            // إخفاء نافذة التخصصات
+            majorsModal.style.display = 'none';
+            
+            // إنشاء نافذة جديدة للتخصص
+            const majorModal = document.createElement('div');
+            majorModal.className = 'modal';
+            majorModal.id = 'major-details-modal';
+            
+            let featuresHTML = '';
+            if (major.features) {
+                featuresHTML = `
+                    <h4 style="margin: 20px 0 10px; color: var(--primary-color);">مميّزاته:</h4>
+                    <ul style="margin-right: 20px;">
+                        ${major.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                `;
+            }
+            
+            majorModal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">${major.name}</h2>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="major-details">
+                            <div class="major-icon">
+                                <i class="${major.icon}"></i>
+                            </div>
+                            <p>${major.description}</p>
+                            
+                            ${featuresHTML}
+                            
+                            <div class="major-info">
+                                <div class="info-item">
+                                    <div class="info-label">عدد الساعات الكلي:</div>
+                                    <div>${major.hours} ساعة</div>
+                                </div>
+                                ${major.fieldHours ? `
+                                <div class="info-item">
+                                    <div class="info-label">الساعات الميدانية:</div>
+                                    <div>${major.fieldHours} ساعة</div>
+                                </div>
+                                ` : ''}
+                                ${major.projectHours ? `
+                                <div class="info-item">
+                                    <div class="info-label">ساعات مشروع التخرج:</div>
+                                    <div>${major.projectHours} ساعة</div>
+                                </div>
+                                ` : ''}
+                                <div class="info-item">
+                                    <div class="info-label">سعر الساعة (تنافس):</div>
+                                    <div>${major.competitivePrice} دينار</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">سعر الساعة (موازي):</div>
+                                    <div>${major.parallelPrice} دينار</div>
+                                </div>
+                            </div>
+                            
+                            <h4 style="margin: 20px 0 10px; color: var(--dark-color);">مجالات العمل:</h4>
+                            <div class="job-fields">
+                                ${major.jobFields.map(field => `<div class="job-field">${field}</div>`).join('')}
+                            </div>
+                        </div>
+                        
+                        <button class="back-btn" id="back-to-majors"><i class="fas fa-arrow-right"></i> العودة لقائمة التخصصات</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(majorModal);
+            majorModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // إضافة مستمعي الأحداث للنافذة الجديدة
+            const closeBtn = majorModal.querySelector('.close-modal');
+            const backBtn = majorModal.querySelector('#back-to-majors');
+            
+            closeBtn.addEventListener('click', () => {
+                majorModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                document.body.removeChild(majorModal);
+            });
+            
+            backBtn.addEventListener('click', () => {
+                majorModal.style.display = 'none';
+                majorsModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                document.body.removeChild(majorModal);
+            });
+            
+            // إغلاق النافذة عند النقر خارجها
+            majorModal.addEventListener('click', (e) => {
+                if (e.target === majorModal) {
+                    majorModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    document.body.removeChild(majorModal);
+                }
+            });
+        }
+        
+        // فتح صفحة التخصص العادي
+        function openSimpleMajorModal(majorName) {
+            // إخفاء نافذة التخصصات
+            majorsModal.style.display = 'none';
+            
+            // إنشاء نافذة جديدة للتخصص
+            const majorModal = document.createElement('div');
+            majorModal.className = 'modal';
+            majorModal.id = 'major-details-modal';
+            majorModal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">${majorName}</h2>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="info-box">
+                            <p>معلومات تفصيلية عن تخصص ${majorName} ستتوفر قريبًا.</p>
+                        </div>
+                        
+                        <button class="back-btn" id="back-to-majors"><i class="fas fa-arrow-right"></i> العودة لقائمة التخصصات</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(majorModal);
+            majorModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // إضافة مستمعي الأحداث للنافذة الجديدة
+            const closeBtn = majorModal.querySelector('.close-modal');
+            const backBtn = majorModal.querySelector('#back-to-majors');
+            
+            closeBtn.addEventListener('click', () => {
+                majorModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                document.body.removeChild(majorModal);
+            });
+            
+            backBtn.addEventListener('click', () => {
+                majorModal.style.display = 'none';
+                majorsModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                document.body.removeChild(majorModal);
+            });
+            
+            // إغلاق النافذة عند النقر خارجها
+            majorModal.addEventListener('click', (e) => {
+                if (e.target === majorModal) {
+                    majorModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    document.body.removeChild(majorModal);
+                }
+            });
+        }
+        
+        // فتح الصور في نافذة منبثقة
+        imageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const imageUrl = button.getAttribute('data-image');
+                modalImage.src = imageUrl;
+                imageModal.style.display = 'flex';
+            });
+        });
+        
+        // إغلاق نافذة الصورة
+        closeImageModal.addEventListener('click', () => {
+            imageModal.style.display = 'none';
+        });
+        
+        // إغلاق نافذة الصورة عند النقر خارجها
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
+        });
+        
+        // نظام التقييم بالنجوم
+        let currentRating = 0;
+        
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = parseInt(star.getAttribute('data-rating'));
+                currentRating = rating;
+                
+                // تحديث مظهر النجوم
+                stars.forEach(s => {
+                    if (parseInt(s.getAttribute('data-rating')) <= rating) {
+                        s.classList.remove('far');
+                        s.classList.add('fas');
+                    } else {
+                        s.classList.remove('fas');
+                        s.classList.add('far');
+                    }
+                });
+                
+                // تحديث النص حسب التقييم
+                const ratingTexts = [
+                    "اضغط على النجوم للتقييم",
+                    "سيء",
+                    "مقبول",
+                    "جيد",
+                    "جيد جداً",
+                    "ممتاز"
+                ];
+                
+                ratingText.textContent = ratingTexts[rating];
+            });
+            
+            star.addEventListener('mouseover', () => {
+                const rating = parseInt(star.getAttribute('data-rating'));
+                
+                stars.forEach(s => {
+                    if (parseInt(s.getAttribute('data-rating')) <= rating) {
+                        s.style.color = 'gold';
+                    } else {
+                        s.style.color = 'gold';
+                        s.style.opacity = '0.5';
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseout', () => {
+                stars.forEach(s => {
+                    s.style.color = 'gold';
+                    s.style.opacity = '1';
+                    
+                    if (parseInt(s.getAttribute('data-rating')) > currentRating) {
+                        s.classList.remove('fas');
+                        s.classList.add('far');
+                    }
+                });
+            });
+        });
+        
+        // إرسال التقييم
+        submitRatingBtn.addEventListener('click', () => {
+            if (currentRating === 0) {
+                alert('يرجى اختيار تقييم قبل الإرسال');
+                return;
+            }
+            
+            const feedback = document.getElementById('feedback').value;
+            alert(`شكراً لتقييمك! تم تسجيل تقييمك: ${currentRating} نجوم\nملاحظاتك: ${feedback || 'لا توجد ملاحظات'}`);
+            ratingModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // إعادة تعيين التقييم
+            stars.forEach(s => {
+                s.classList.remove('fas');
+                s.classList.add('far');
+            });
+            currentRating = 0;
+            ratingText.textContent = "اضغط على النجوم للتقييم";
+            document.getElementById('feedback').value = '';
+        });
+        
+        // إغلاق النافذة عند النقر خارج المحتوى
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
