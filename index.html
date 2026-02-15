@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مرشد عزماوي </title>
-   <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4xm0ZsBeGOoreNmGxKu0MuOyeXYHydLH-aw&s" />
+    <title>سنفور عزماوي </title>
+     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4xm0ZsBeGOoreNmGxKu0MuOyeXYHydLH-aw&s" />
 
     <style>
-        /* أساسيات التصميم المحسّن */
+               /* أساسيات التصميم المحسّن - رمضان كريم theme */
         :root {
-            --primary-color: #1a237e;
-            --secondary-color: #283593;
-            --light-color: #e8eaf6;
-            --dark-color: #0d1450;
-            --accent-color: #ff9800;
-            --text-color: #333;
-            --white: #fff;
-            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            --gradient-secondary: linear-gradient(135deg, var(--secondary-color), var(--dark-color));
-            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.12);
-            --shadow-heavy: 0 12px 36px rgba(0, 0, 0, 0.15);
+            /* Ramadan Deep Blue Palette */
+            --primary-color: #0a1a2f;      /* Deep night sky */
+            --secondary-color: #1a2b4a;    /* Twilight blue */
+            --light-color: #e9eaf0;        /* Soft beige/cream, like parchment */
+            --dark-color: #01060f;          /* Even darker blue for depth */
+            --accent-color: #F9C74F;        /* Warm gold, like a lantern's glow */
+            --text-color: #000000;          /* Light blueish-white for main text on dark */
+            --white: #ffffff;                /* Pure white for text on dark */
+            
+            /* New Gradients for Ramadan */
+            --gradient-primary: linear-gradient(135deg, #071e33, #0e3681); /* Night to twilight */
+            --gradient-secondary: linear-gradient(135deg, #1a2b4a, #0a1a2f); /* Twilight to night */
+            --gradient-gold: linear-gradient(135deg, #F9C74F, #F4A261); /* Gold gradient for accents */
+            
+            /* Shadows - slightly more pronounced for depth */
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --shadow-heavy: 0 12px 36px rgba(0, 0, 0, 0.5);
         }
-        
         * {
             margin: 0;
             padding: 0;
@@ -196,6 +201,12 @@
         
         .overlay.active {
             display: block;
+        }
+        
+        /* زر انضم إلينا المميز - تم التغيير إلى الأزرق */
+        .join-btn {
+            background: linear-gradient(135deg, #2196F3, #0D47A1);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
         }
         
         /* الأقسام الرئيسية المحسنة */
@@ -806,76 +817,6 @@
             100% { transform: scale(1); }
         }
         
-        /* مؤشر التحميل */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-        
-        .loading-overlay.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        .smurf-loader {
-            width: 120px;
-            height: 120px;
-            position: relative;
-            animation: pulse 1.5s infinite;
-        }
-        
-        .smurf-loader img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        
-        .loading-text {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-align: center;
-        }
-        
-        /* صور قسم من نحن */
-        .about-images {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-        
-        .about-image {
-            width: 280px;
-            height: 200px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-medium);
-            transition: transform 0.3s ease;
-        }
-        
-        .about-image:hover {
-            transform: translateY(-5px);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
         /* التجاوب مع الشاشات الصغيرة */
         @media (max-width: 992px) {
             .site-title {
@@ -940,16 +881,6 @@
                 width: 100%;
                 max-width: 280px;
             }
-            
-            .about-images {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .about-image {
-                width: 100%;
-                max-width: 300px;
-            }
         }
         
         @media (max-width: 480px) {
@@ -966,20 +897,65 @@
                 font-size: 1rem;
             }
         }
+
+    /* فوانيس رمضان بالصور */
+.ramadan-lantern {
+    position: fixed;
+    top: 0px;
+    width: 60px; /* عرض الصورة */
+    height: auto; /* يحافظ على نسبة الأبعاد */
+    z-index: 1001;
+    filter: drop-shadow(0 0 15px var(--ramadan-gold));
+    animation: elegantSwing 4s infinite ease-in-out;
+    pointer-events: none; /* لا يتفاعل مع الماوس */
+}
+
+.left-lantern {
+    left: 80px;
+}
+
+.right-lantern {
+    right: 30px;
+}
+
+/* أو إذا أردت فوانيس متعددة */
+.lantern-1 {
+    top: 60px;
+    left: 20px;
+    width: 50px;
+    animation-delay: 0s;
+}
+
+.lantern-2 {
+    top: 60px;
+    right: 20px;
+    width: 50px;
+    animation-delay: 1s;
+}
+
+.lantern-3 {
+    top: 150px;
+    left: 10px;
+    width: 40px;
+    animation-delay: 2s;
+}
+
+.lantern-4 {
+    top: 150px;
+    right: 10px;
+    width: 40px;
+    animation-delay: 3s;
+}
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- مؤشر التحميل -->
-    <div class="loading-overlay" id="loading-overlay">
-    <div class="smurf-loader">
-        <img src="https://i.ibb.co/vvkvxBKM/pngimg-com-smurf-PNG70.png" alt="شعار التحميل">
-        <div class="loading-text">جارٍ التحميل...</div>
-    </div>
-</div>
-        </div>
-    </div>
+    
+    <!-- فوانيس رمضان -->
+<img src="https://i.ibb.co/Kjst0pfY/2-removebg-preview.png" class="ramadan-lantern left-lantern" alt=" ">
+<img src="https://i.ibb.co/Pz6WQStc/3-removebg-preview.png" class="ramadan-lantern right-lantern" alt=" ">
     
     <!-- زر القائمة (ثلاث شحطات) -->
     <button class="menu-toggle" id="menu-toggle">
@@ -990,6 +966,7 @@
     <div class="side-menu" id="side-menu">
         <ul>
             <li><a href="#" id="about-link"><i class="fas fa-users"></i> من نحن</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScZOxyoEMDMjNvlKc2w39IGlaizN_sQVp4jqaw1I3_lMcnIrA/viewform?usp=header" target="_blank" class="join-btn"><i class="fas fa-user-plus"></i> انضم إلينا</a></li>
             <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdHoIu0G2KGH2fculiku5nrUtsa3VFGOsgw1z_0rAkAWFy0xA/viewform?usp=header" target="_blank" id="rating-link"><i class="fas fa-star"></i> تقييم</a></li>
         </ul>
     </div>
@@ -1003,10 +980,11 @@
             <div class="header-content">
                 <div class="logo-section">
                     <div class="logo">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4xm0ZsBeGOoreNmGxKu0MuOyeXYHydLH-aw&s" alt="شعار مرشد عزماوي">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4xm0ZsBeGOoreNmGxKu0MuOyeXYHydLH-aw&s" alt="شعار سنفور عزماوي">
                     </div>
                     <h1 class="site-title">مرشد عزماوي</h1>
-                    <p class="welcome-text">اهلا وسهلا بكم في موقعنا الإرشادي لسنافر جيل 2007 (2025-2026)</p>
+                    <p class="welcome-text"> 🌙 أهلاً وسهلاً بكم في موقعنا الإرشادي لسنافر جيل 2007
+(2025/2026) </p>
                 </div>
             </div>
         </div>
@@ -1066,24 +1044,24 @@
             </div>
             <div class="modal-body">
                 <div class="info-box">
-                    <p>سنافر الإسلامية الفخمين، مبارك قبولكم ونفع الله بكم الأمة.</p>
+                    <p>سنافر الإسلامية الفخمين، مُبارك قبولكم ونفعَ الله بكم الأمة.🌙</p>
                 </div>
                 
                 <h3 style="margin: 25px 0 20px; color: var(--dark-color);">أهم إجابات الاسئلة المطروحة :</h3>
                 
                 <div class="faq-item">
-                    <div class="faq-question">ماذا أفعل إذا تم وصول رسالة القبول إليّ في الجامعة؟</div>
-                    <div class="faq-answer">تستطيع أن تسجّل ميدانيًا من خلال مراجعتك لفعاليّة إستقبال الطلبة المستجدين في الصالة الرياضية، أو إلكترونيًا من خلال رابط التسجيل الذي تم نشره على صفحتنا(أهل العزم).</div>
+                    <div class="faq-question">وصلتني رسالة القبول في الجامعة، شو أعمل ؟</div>
+                    <div class="faq-answer">بتقدر تسجّل ميدانيًا من خلال مراجعتك لحفل إستقبال السنافر في الصالة الرياضية أو إلكترونيًا من خلال الرابط التسجيل اللي تم نشره ع صفحتنا.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">كم تبلغ رسوم التسجيل ؟</div>
-                    <div class="faq-answer">التنافس 285+رسوم الساعات ومن ثم كل فصل 125+رسوم الساعات.<br>الموزاي 435 +رسوم الساعات ومن ثم كل فصل 200+رسوم الساعات.</div>
+                    <div class="faq-question">كم رسوم التسجيل ؟</div>
+                    <div class="faq-answer">التنافس 285 وبعدين كل فصل125<br>الموزاي 435 وبعدين كل فصل 200</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">هل يجب أن أدفع كامل رسوم التسجيل والساعات أم أستطيع التقسيط؟</div>
-                    <div class="faq-answer">يكون الدفع لأول فصل كامل المبلغ ومن ثم تستطيع أن تضع جزء من الرسوم على الذمم في باقي الفصول.</div>
+                    <div class="faq-question">هل لازم أدفع رسوم التسجيل والساعات كاملين ولّا بنفع أقسّط ؟</div>
+                    <div class="faq-answer">الدفع لأول فصل لازم كامل وبعدين بتقدر تحطّ جزء من الرسوم ع الذمم في باقي الفصول.</div>
                 </div>
                 
                 <div class="faq-item">
@@ -1092,89 +1070,93 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">هل أستطيع التحكّم بعدد الساعات ؟</div>
-                    <div class="faq-answer">نعم، عدد الساعات الذي تضعه الجامعة للطلبة المستجدين 12 ساعة،و تستطيع ان تُضيف عليه حسب المُتاح.</div>
+                    <div class="faq-question">بقدر أتحكّم بعدد الساعات ؟</div>
+                    <div class="faq-answer">نعم، الجامعة بتنزّلك 12 ساعة ، وبتقدر تضيف عليهم حسب المُتاح.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">ما هي المكارم الموجودة في الجامعة ؟</div>
-                    <div class="faq-answer">(مكرمة الجيش / مكرمة المعلمين).</div>
+                    <div class="faq-question">شو المكارم اللي موجودة بالجامعة ؟</div>
+                    <div class="faq-answer">(مكرمة الجيش / مكرمة المعلمين)</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">لديّ مكرمة ومكتوب عليها عند جهة الإنفاق (نفقة خاصّة) لماذا؟</div>
-                    <div class="faq-answer">ستتغير لوحدها، عندما تُعلن المكرمة عن الإجراءات المطلوبة و تقوم بفعلها.</div>
+                    <div class="faq-question">معي مكرمة ومكتوب عند جهة الإنفاق نفقة خاصّة ليه!</div>
+                    <div class="faq-answer">بعد ما تعلن المكرمة عن الإجراءات المطلوبة وتعملوها بتتغير لحالها.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">هل يوجد قروض ومنح بالجامعة ؟</div>
-                    <div class="faq-answer">الجامعة غير متوفر فيها منح من التعليم العالي، لكن يتوفر فيها منح داخلية لكليات المذاهب، ومنحة حفظ القرآن الكريم كاملًا لتخصصات الشريعة واللغة العربية، ويوجد صندوق للقروض، سيأتي الشرح عنه مُفصلًا في الموقع.</div>
+                    <div class="faq-question">عنا قروض ومنح بالجامعة ؟</div>
+                    <div class="faq-answer"> .الجامعة غير متوفر فيها منح وقروض من التعليم العالي لكن يتوفر منح داخلية فقط لكليات المذاهب، وتمّ إنشاء صندوق للقروض </div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">ما هي مواعيد امتحانات المستوى؟</div>
-                    <div class="faq-answer">سوف تحددها الجامعة لاحقًا.</div>
+                    <div class="faq-question">متى امتحانات المستوى؟ وكيف لازم ندرسلهم؟</div>
+                    <div class="faq-answer">بتحدده الجامعة لاحقًا، وقروبنا رح ينزل عليه كل شيء بخصّ امتحانات المستوى.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">كيف استطيع التحويل من تخصص لا اريده إلى تخصص آخر ؟</div>
-                    <div class="faq-answer">من خلال رابط الاعتراض،واذا كان التخصص الذي يرغب الطالب بالتحويل عليه نفس معدل الثانوية العامة أو أقل يستطيع التحويل عن طريق التسجيل المُباشر بالجامعة، ولا داعي في هذه الحالة لرابط الاعتراض.</div>
+                    <div class="faq-question">إذا طلعلي تخصص وما ناسبني ، كيف أحوّل ؟</div>
+                    <div class="faq-answer">من خلال رابط الاعتراض اللي تنشره الوزارة.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">ماذا يحصل إذا قدّمت على رابط الاعتراض ولم أسجل بالتخصُّص الذي أتيحَ لي بالاعتراض !؟</div>
-                    <div class="faq-answer">إذا لم تدفع المبلغ المطلوب وانتهى موعد تسجيلك، تفقد حقك بالمقعد الجديد.</div>
+                    <div class="faq-question">إذا قدّمت ع الاعتراض وما سجّلت للتخصُّص اللي طلعلي بالاعتراض !؟</div>
+                    <div class="faq-answer">لو ما دفعت وانتهى موعد تسجيلك مقعدك الجديد بروح.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">هل يوجد دفع لطلب الاعتراض ؟</div>
+                    <div class="faq-question">بندفع لطلب الاعتراض ؟</div>
                     <div class="faq-answer">لا.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">متى تكون نتيجة الاعتراض؟</div>
-                    <div class="faq-answer">بعد أسبوع من التقديم تقريبًا.</div>
+                    <div class="faq-question">متى نتيجة الاعتراض بتطلع؟</div>
+                    <div class="faq-answer">غالبّا بعد أسبوع من التقديم.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">كيف أسجّل على النظام الموازي بالجامعة ؟</div>
-                    <div class="faq-answer">من خلال مراجعتك للقبول والتسجيل ودفع الرسوم كاملة،او من خلال الرابط.</div>
+                    <div class="faq-question">كيف أسجّل موازي بالجامعة ؟</div>
+                    <div class="faq-answer">من خلال مراجعتك للقبول والتسجيل ودفع الرسوم كاملة.</div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">هل لديكم معلومات عن مكرمة الجيش؟</div>
-                    <div class="faq-answer">نعم،يتم دفع الرسوم كاملة أول فصل وبعد ذلك دفع 50 دينار للفصل العادي، والفصل الصيفي 25 دينار، ورسوم الساعات مُستردات.</div>
+                    <div class="faq-question">مكرمة الجيش يتم دفع الرسوم كاملة أول فصل بعد هيك 50 دينار للفصل العادي ، والصيفي 25 دينار ورسوم الساعات مُستردات.</div>
+                    <div class="faq-answer"></div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">ما هي تفاصيل مكرمة المعلمين بالجامعة ؟</div>
-                    <div class="faq-answer">يقوم الطالب بدفع كامل الرسوم لأول فصل، وعندما يتمّ قبوله بالمكرمة، يتم إعادة رسوم الساعات فقط، وبعد ذلك،كل فصل يقوم بدفع رسوم التسجيل فقط، ويُعفى من رسوم الساعات. وإذا تم رسوب الطالب بمادة من المواد، يتحمل رسومها.</div>
+                    <div class="faq-question">
+ مكرمة المعلمين أول فصل بدفع الطالب كامل الرسوم، ولما يتمّ قبوله بالمكرمة برجعله رسوم الساعات فقط وكل فصل بدفع رسوم التسجيل فقط، ويُعفى من الساعات وإذا رسب الطالب بمادة من المواد،هو الذي يتحمل رسومها.</div>
+                    <div class="faq-answer"></div>
                 </div>
                 
+        
                 <!-- إضافة طريقة دفع الرسوم -->
                 <div class="info-box" style="background: linear-gradient(to left, #e8f5e9, #c8e6c9); border-right: 5px solid #4CAF50;">
-                    <h3 style="color: #2E7D32; margin-bottom: 15px;">كيفية دفع الرسوم الجامعية بغير الحاجة إلى مراجعة البنك أو الجامعة:</h3>
+                    <h3 style="color: #2E7D32; margin-bottom: 15px;">سنافرنا المميزين✨</h3>
+                    <h4 style="color: #2E7D32; margin-bottom: 10px;">كيف تدفع رسومك الجامعية بدون مراجعتك للبنك أو الجامعة؟</h4>
                     <ol style="margin-right: 20px; margin-top: 10px;">
-                        <li>حمّل تطبيق إي فواتيركم وأنشئ حسابًا عليه.</li>
-                        <li>انقر على خانة (حكومية) ثم خانة (تعليمي).</li>
-                        <li>ابحث على اسم جامعة العلوم الإسلامية.</li>
+                        <li>حمّل تطبيق اي فواتيركم وسجّل حسابك عليه.</li>
+                        <li>ادخل ع خانة (حكومية).</li>
+                        <li>ثم خانة (تعليمي).</li>
+                        <li>ابحث ع اسم جامعة العلوم الإسلاميّة.</li>
                         <li>اكتب رقمك الجامعي وحدد خيار (الرسوم الجامعية).</li>
-                        <li>انقر استعلام ثم استمرار للدفع.</li>
+                        <li>اضغط استعلام ومن ثمّ الاستمرار للدفع.</li>
                     </ol>
-                    <p style="margin-top: 15px; font-weight: 600; color: #2E7D32;">تهانينها تمّ دفع كامل الرسوم.</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: #2E7D32;">تهانينا، تم دفع كامل الرسوم ✅🤩</p>
                 </div>
                 
                 <!-- أزرار الصور المضافة -->
                 <div style="margin-top: 30px;">
                     <h3 style="margin-bottom: 15px; color: var(--dark-color);">معلومات إضافية:</h3>
                     <div class="image-buttons">
-                        <button class="image-btn" data-image="https://i.ibb.co/KjFZqg6S/IMG-20251003-WA0012.jpg">
+                        <button class="image-btn" data-image="https://i.ibb.co/pvQzy9vz/FB-IMG-1759349990495.jpg">
                             <i class="fas fa-file-alt"></i> الأوراق المطلوبة للتسجيل
                         </button>
-                        <button class="image-btn" data-image="https://i.ibb.co/yFx9VGzD/IMG-20251003-WA0013.jpg">
+                        <button class="image-btn" data-image="https://i.ibb.co/KpLbkPPM/FB-IMG-1759350045131.jpg">
                             <i class="fas fa-money-bill-wave"></i> أسعار الساعات للتنافس والموازي
                         </button>
-                        <button class="image-btn" data-image="https://i.ibb.co/JFnz66FW/5983407008818252034.jpg">
+                        <button class="image-btn" data-image="https://i.ibb.co/993zxSmf/89.jpg">
                             <i class="fas fa-map"></i> خريطة الجامعة
                         </button>
                         <!-- إضافة زر معدلات القبول 2025/2026 -->
@@ -1226,16 +1208,7 @@
                 
                 <div class="transport-option">
                     <div class="transport-title"><i class="fas fa-bus"></i> باصات مأدبا</div>
-                    <p>1} موجود باصين بمجمع مأدبا (شرقي/غربي) بطلعوا ع ال٦:٤٠ تقريبًا وبوصلوك لباب الجامعة عند كلية الدعوة، وفي باص بطلع ع ال٩ لو دوامك كان دوامك متأخر.</p>
-                 
-   <p>2} باص مجمع الشمال ومن مجمع الشمال بباص رقم 5.</p>
-                
-    <p>3} الباص السريع مادبا،لمحطة طارق و من محطة طارق، بباص رقم 5 للجامعة.</p>
-                </div>
-                
-                <div class="transport-option">
-                    <div class="transport-title"><i class="fas fa-bus"></i> باصات جرش</div>
-                    <p>من باب عمان مدخل جرش، في باص عمان بوصل لمجمع الشمال، من مجمع الشمال لمحطة طارق، ومن محطة طارق للجامعة.</p>
+                    <p>موجود باصين بمجمع مأدبا (شرقي/غربي) بطلعوا ع ال٦:٤٠ تقريبًا وبوصلوك لباب الجامعة عند كلية الدعوة، وفي باص بطلع ع ال٩ لو دوامك كان دوامك متأخر.</p>
                 </div>
                 
                 <button class="back-btn"><i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية</button>
@@ -1257,7 +1230,7 @@
                     <!-- كلية الآداب والعلوم -->
                     <div class="college-card" data-college="arts">
                         <div class="college-image">
-                            <img src="https://i.ibb.co/Z60Ch4Jy/IMG-20250225-WA0065.jpg" alt="كلية الآداب والعلوم">
+                            <img src="https://i.ibb.co/4nLQtLTD/adabb.jpg" alt="كلية الآداب والعلوم">
                         </div>
                         <div class="college-name">كلية الآداب والعلوم</div>
                     </div>
@@ -1265,7 +1238,7 @@
                     <!-- كلية العلوم التربوية -->
                     <div class="college-card" data-college="education">
                         <div class="college-image">
-                            <img src="https://i.ibb.co/Hfz3rdsF/IMG-20250225-WA0064.jpg" alt="كلية العلوم التربوية">
+                            <img src="https://i.ibb.co/Gf8ZdKMh/FB-IMG-1759349454833.jpg">
                         </div>
                         <div class="college-name">كلية العلوم التربوية</div>
                     </div>
@@ -1273,7 +1246,7 @@
                     <!-- كلية المذاهب الفقهية -->
                     <div class="college-card" data-college="fiqh">
                         <div class="college-image">
-                            <img src="https://i.ibb.co/y73jWYV/IMG-20250225-WA0066.jpg" alt="كلية المذاهب الفقهية">
+                            <img src="https://i.ibb.co/0jtGFrjv/FB-IMG-1759349772499.jpg" alt="كلية المذاهب الفقهية">
                         </div>
                         <div class="college-name">كلية المذاهب الفقهية</div>
                     </div>
@@ -1281,7 +1254,7 @@
                     <!-- كلية الفنون والعمارة الإسلامية -->
                     <div class="college-card" data-college="arts-architecture">
                         <div class="college-image">
-                            <img src="https://i.ibb.co/Kx36mWbw/IMG-20250225-WA0063.jpg" alt="كلية الفنون والعمارة الإسلامية">
+                            <img src="https://i.ibb.co/RGG1xmYC/FB-IMG-1759349886094.jpg" alt="كلية الفنون والعمارة الإسلامية">
                         </div>
                         <div class="college-name">كلية الفنون والعمارة الإسلامية</div>
                     </div>
@@ -1289,7 +1262,7 @@
                     <!-- كلية المال والأعمال -->
                     <div class="college-card" data-college="business">
                         <div class="college-image">
-                            <img src="https://i.ibb.co/7JZV3z2D/IMG-20250225-WA0062.jpg" alt="كلية المال والأعمال">
+                            <img src="https://i.ibb.co/Rp6CZx6d/FB-IMG-1759349528191.jpg" alt="كلية المال والأعمال">
                         </div>
                         <div class="college-name">كلية المال والأعمال</div>
                     </div>
@@ -1297,25 +1270,25 @@
                     <!-- كلية الشيخ نوح والقضاة للشريعة والقانون -->
                     <div class="college-card" data-college="law">
                         <div class="college-image">
-                            <img src="https://i.ibb.co/k6JYX7FL/IMG-20250925-WA0063.jpg" alt="كلية الشيخ نوح والقضاة للشريعة والقانون">
+                            <img src="https://i.ibb.co/Tqc4Ctn7/FB-IMG-1759349842962.jpg" alt="كلية الشيخ نوح والقضاة للشريعة والقانون">
                         </div>
                         <div class="college-name">كلية الشيخ نوح والقضاة للشريعة والقانون</div>
                     </div>
                     
+                      <!-- كلية الدعوة وأصول الدين - تم إضافتها بشكل صحيح -->
+<div class="college-card" data-college="sharia">
+    <div class="college-image">
+        <img src="https://i.ibb.co/Dg73WFfz/FB-IMG-1759349808726.jpg" alt="كلية الدعوة وأصول الدين">
+    </div>
+    <div class="college-name">كلية الدعوة وأصول الدين</div>
+</div>
+                    
                     <!-- كلية تكنولوجيا المعلومات -->
                     <div class="college-card" data-college="it">
                         <div class="college-image">
-                            <img src="https://i.ibb.co/rKx8BpFT/IMG-20250925-WA0069.jpg" alt="كلية تكنولوجيا المعلومات">
+                            <img src="https://i.ibb.co/sYg6xFH/FB-IMG-1759349581121.jpg" alt="كلية تكنولوجيا المعلومات">
                         </div>
                         <div class="college-name">كلية تكنولوجيا المعلومات</div>
-                    </div>
-                    
-                    <!-- كلية الدعوة وأصول الدين -->
-                    <div class="college-card" data-college="daawa">
-                        <div class="college-image">
-                            <img src="https://i.ibb.co/NdgwqfKN/FB-IMG-1759349808726.jpg" alt="كلية الدعوة وأصول الدين">
-                        </div>
-                        <div class="college-name">كلية الدعوة وأصول الدين</div>
                     </div>
                 </div>
                 
@@ -1368,6 +1341,7 @@
                 <ul style="margin-right: 20px; margin-top: 10px;">
                     <li>مراجعة المناهج الأساسية للمواد المطلوبة</li>
                     <li>حل نماذج الامتحانات السابقة</li>
+                    <li>الاستفادة من المراجعات التي تنظمها الجامعة</li>
                     <li>الاطلاع على نماذج الامتحانات المتاحة عبر الرابط أدناه</li>
                 </ul>
                 
@@ -1391,7 +1365,7 @@
             </div>
             <div class="modal-body">
                 <div class="info-box">
-                    <p>سنافرنا الأعزاء، جئنا إليكم بتفاصيل المنح والقروض للإجابة على تساؤلاتكم</p>
+                    <p>سنافرنا الأعِزّاء، جئنا إليكم بتفاصيل المنح والقروض للإجابة على تساؤلاتكم</p>
                 </div>
                 
                 <!-- أزرار المنح والقروض -->
@@ -1419,7 +1393,7 @@
                 <button class="close-modal">&times;</button>
             </div>
             <div class="modal-body">
-                <h3 style="margin: 25px 0 15px; color: var(--dark-color);">فيما يخص القروض:</h3>
+                <h3 style="margin: 25px 0 15px; color: var(--dark-color);">💟 فيما يخص القروض:</h3>
                 <p>بدأ وتفعّل التقديم للقروض في جامعة العلوم الإسلامية بتاريخ 15/12/2024</p>
                 
                 <h4 style="margin: 20px 0 10px; color: var(--primary-color);">شروط تقديم طلب قرض الطالب:</h4>
@@ -1453,21 +1427,21 @@
                 <button class="close-modal">&times;</button>
             </div>
             <div class="modal-body">
-                <h3 style="margin: 25px 0 15px; color: var(--dark-color);">فيما يخص المنح:</h3>
+                <h3 style="margin: 25px 0 15px; color: var(--dark-color);">💟 فيما يخص المنح:</h3>
                 
                 <div class="major-details">
-                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">منحة حفظ القرآن الكريم كاملًا أو 15 جزء</h4>
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">🔷 منحة حفظ القرآن الكريم كاملًا أو 15 جزء</h4>
                     <p><strong>شروط المنحة هي:</strong></p>
                     <ul style="margin-right: 20px;">
                         <li>حصول الطالب في امتحان المنحة علامة 90%.</li>
                         <li>لجميع تخصصات الشريعة وتخصص اللغة العربية.</li>
                         <li>تُغطّي رسوم الساعات فقط.</li>
-                        <li>باقي التخصصات والدراسات العليا يدفع 25% من رسوم الساعات إضافةً لرسوم الخدمات.</li>
+                        <li>باقي التخصصات والدراسات العُليا يدفع 25% من رسوم الساعات إضافةً لرسوم الخدمات.</li>
                     </ul>
                 </div>
                 
                 <div class="major-details">
-                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">منحة كلية الفقه المالكي</h4>
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">🔷 منحة كلية الفقه المالكي</h4>
                     <p>للبكالوريوس منحة كاملة (دراسة مجانية)</p>
                     <p><strong>شروط المنحة، هي:</strong></p>
                     <ul style="margin-right: 20px;">
@@ -1476,7 +1450,7 @@
                 </div>
                 
                 <div class="major-details">
-                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">منح كلية الفقه الشافعي:</h4>
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">🔷 منح كلية الفقه الشافعي:</h4>
                     <ul style="margin-right: 20px;">
                         <li>منحة حفظ القرآن الكريم كاملًا (للحاصل على معدل 80% فما فوق في الثانوية العامة).</li>
                         <li>منحة كاملة (للحاصل على معدل 90% فما فوق في الثانوية العامة).</li>
@@ -1485,7 +1459,7 @@
                 </div>
                 
                 <div class="major-details">
-                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">منح كلية الفقه الحنفي:</h4>
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">🔷 منح كلية الفقه الحنفي:</h4>
                     <ul style="margin-right: 20px;">
                         <li>حصول الطالب على معدل 90% فما فوق (منحة كاملة).</li>
                         <li>حصول الطالب على معدل 80% - 90% (منحة جزئية).</li>
@@ -1494,7 +1468,7 @@
                 </div>
                 
                 <div class="major-details">
-                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">منحة الأمير غازي لطلاب كلية المذاهب</h4>
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">🔷 منحة الأمير غازي لطلاب كلية المذاهب</h4>
                     <p><strong>شروطها:</strong></p>
                     <ul style="margin-right: 20px;">
                         <li>معدل التوجيهي 80% فما فوق، وفيها يُعفى الطالب من رسوم الساعات فقط.</li>
@@ -1515,33 +1489,24 @@
             </div>
             <div class="modal-body">
                 <div class="info-box">
-                    <p>فريق طلابي طموح، انطلق سعيًا لخدمة الطلبة وتثقيفهم ورفع مستوى الوعي عندهم، وتقديم يد العون لهم أكاديميًا وتربويًا وعلميًا.</p>
-                </div>
-                
-                <div class="about-images">
-                    <div class="about-image">
-                        <img src="https://i.ibb.co/39JCCcYT/FB-IMG-1759425783458.jpg" alt="صورة فريق مرشد عزماوي">
-                    </div>
-                    <div class="about-image">
-                        <img src="https://i.ibb.co/LXnnH8Sm/FB-IMG-1759425737583.jpg" alt="صورة فريق مرشد عزماوي">
-                    </div>
+                    <p>فريق طلابي طموح، سعيًا لخدمة الطلبة وتثقيفهم ورفع مستوى الوعي عندهم، وتقديم يد العون لهم أكاديميًا وتربويًا وعلميًا .</p>
                 </div>
                 
                 <h3 style="margin: 25px 0 15px; color: var(--dark-color);">رؤيتنا:</h3>
-                <p>شباب جامعي واعٍ وفاعل ومؤثر يمتلك أدوات النجاح والتغيير في ساحات العمل الجامعي.</p>
+                <p>شباب جامعي واعٍ وفاعل ومؤثر يمتلك أدوات النجاح والتغيير في ساحات العمل الجامعي .</p>
                 
                 <h3 style="margin: 25px 0 15px; color: var(--dark-color);">رسالتنا:</h3>
-                <p>تكوين جيل شباب واعي، منتمي لوطنه وأمته، ذو خطاب متزن ومنظومة أخلاقية وقيمية، وهوية وطنية جامعة يمتلك أدوات التغيير ويسهم في تحقيق آمال الشباب وتطوعاتهم.</p>
+                <p>تكوين جيل شباب واعي ، منتمي لوطنه وأمته ، ذو خطاب متزن ومنظومة أخلاقية وقيمية ، وهوية وطنية جامعة يمتلك أدوات التغيير ويسهم في تحقيق آمال الشباب وتطوعاتهم.</p>
                 
                 <h3 style="margin: 25px 0 15px; color: var(--dark-color);">أهدافنا:</h3>
                 <ol style="margin-right: 20px;">
-                    <li>تعميق شعور الانتماء عند الطلبة على عدة مستويات منها الانتماء للدين والأمة والوطن والجامعة.</li>
-                    <li>خدمة الطالب أكاديمياً وبكل ما يلزم.</li>
-                    <li>نشر الوعي والفكر والرسائل القيمية بين طلبة الجامعة بالقضايا المختلفة.</li>
-                    <li>نشر مفهوم الخيرية عند الطلبة وتشجيعهم على البذل والعطاء.</li>
-                    <li>توعية الطلبة بحقوقهم وواجباتهم.</li>
-                    <li>خدمة وإفادة مجتمع طلاب الجامعة والمساهمة في تقدمه الذي سينعكس على الوطن مستقبلاً.</li>
-                    <li>صناعة حالة طلابية جديدة من خلال التغيير ومن ثم التطوير نحو الأفضل.</li>
+                    <li>تعميق شعور الانتماء عند الطلبة على عدة مستويات منها الانتماء للدين والأمة والوطن والجامعة .</li>
+                    <li>خدمة الطالب أكاديمياً وبكل ما يلزم .</li>
+                    <li>نشر الوعي والفكر والرسائل القيمية بين طلبة الجامعة بالقضايا المختلفة .</li>
+                    <li>نشر مفهوم الخيرية عند الطلبة وتشجيعهم على البذل والعطاء .</li>
+                    <li>توعية الطلبة بحقوقهم وواجباتهم .</li>
+                    <li>خدمة وإفادة مجتمع طلاب الجامعة والمساهمة في تقدمه الذي سينعكس على الوطن مستقبلاً .</li>
+                    <li>صناعة حالة طلابية جديدة من خلال التغيير ومن ثم التطوير نحو الأفضل .</li>
                 </ol>
                 
                 <button class="back-btn"><i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية</button>
@@ -1605,10 +1570,12 @@
                         <i class="fab fa-telegram-plane"></i>
                     </a>
                 </div>
-               
+                <div class="instagram-info">
+                    
+                </div>
             </div>
             <div class="copyright">
-                &copy; 2025 مرشد عزماوي - جميع الحقوق محفوظة.
+                &copy; 2025 سنفور عزماوي. جميع الحقوق محفوظة.
             </div>
         </div>
     </footer>
@@ -1622,23 +1589,23 @@
                     {
                         name: "اللّغة العربيّة وآدابها",
                         icon: "fas fa-book",
-                        description: `يقول الشَّاعر:
-أو دَع لِسانَكَ وَاللُغاتِ فَرُبَّما
+                        description: `تخصص اللّغة العربيّة وآدابها :
+يقول الشَّاعر:
+أَو دَع لِسانَكَ وَاللُغاتِ فَرُبَّما
 غَنّى الأَصيلُ بِمَنطِقِ الأَجدادِ
- إِنَّ الَّذي مَلَأَ اللُغاتِ مَحاسِنًا
+إِنَّ الَّذي مَلَأَ اللُغاتِ مَحاسِنًا
 جَعَلَ الجَمالَ وَسَرَّهُ في الضادِ
 
+
 اللّغة المحفوظة بحفظ القرآن، لغة الإيجاز والإعجاز.
-يهدف التخصص إلى تدريس فرعين من فروع المعرفة الأدب واللغة، أما الأدب فيدرس عبر العصور المختلفة الجاهلي، الأموي، العباسي، الأندلسي فالعصر الحديث، وأما عن تدريس مواد اللّغة فيها النحو والصرف والعروض والأصوات واللسانيات، حتّى يكون المتخصص مكتسبا المهارات الأساسية للغة وقادرًا على تحليل النصوص ونقدها، إضافة إلى القدرة على التعبير بلغة سليمة دقيقة المفردات واضحة المعاني.`,
+يهدف التخصص إلى تدريس فرعين من فروع المعرفة الأدب واللغة، أما الأدب فيدرس عبر العصور المختلفة الجاهلي، الأموي، العباسي، الأندلسي فالعصر الحديث، وأما عن تدريس مواد اللّغة فيها النحو والصرف والعروض والأصوات واللسانيات، حتّى يكون المتخصص مكتسبا المهارات الأساسية للغة وقادرًا على تحليل النصوص ونقدها، إضافة إلى القدرة على التعبير بلغة سليمة دقيقة المفردات واضحة المعاني.
+
+✅ عدد ساعات التخصص 132.
+🔻سعر الساعة تنافس 16 دينار .
+🔻سعر الساعة موازي 30 دينار .`,
                         hours: 132,
                         competitivePrice: 16,
                         parallelPrice: 30,
-                        features: [
-                            "دراسة الأدب عبر العصور المختلفة",
-                            "تعميق المعرفة بقواعد اللغة العربية",
-                            "تنمية مهارات التحليل النقدي للنصوص",
-                            "القدرة على التعبير بلغة سليمة ودقيقة"
-                        ],
                         jobFields: [
                             "التدريس",
                             "الترجمة",
@@ -1650,17 +1617,11 @@
                     },
                     {
                         name: "التاريخ والحضارة الإسلامية",
-                        icon: "fas fa-landmark",
-                        description: "هو أحد تخصصات كلية الآداب في جامعة العلوم الإسلامية، يحتوي على مواد مرتبطة بحضارات و عصور تاريخية مختلفة مثل: عصر ما قبل الإسلام، عصر صدر الإسلام، العصر الأموي، العصر العباسي.",
+                        icon: "fas fa-history",
+                        description: "☑️ عدد ساعات التخصص 132 .✅ سعر الساعة :🔻التنافس 25 دينار .🔻الموازي 30 دينار . تخصص التاريخ والحضارة الإسلامية : هو أحد تخصصات كلية الآداب في جامعة العلوم الإسلامية، يحتوي على مواد مرتبطة بحضارات و عصور تاريخية مختلفة مثل:🔸عصر ما قبل الإسلام.🔸عصر صدر الإسلام.🔸العصر الأموي.🔸العصر العباسي.",
                         hours: 132,
                         competitivePrice: 25,
                         parallelPrice: 30,
-                        features: [
-                            "دراسة التاريخ الإسلامي بجميع عصوره",
-                            "تحليل الحضارات الإسلامية المختلفة",
-                            "فهم التطورات السياسية والاجتماعية في التاريخ الإسلامي",
-                            "دراسة المصادر التاريخية وتحليلها"
-                        ],
                         jobFields: [
                             "وزارة التربية والتعليم",
                             "الوزارات والسفارات",
@@ -1672,25 +1633,20 @@
                     {
                         name: "اللغة الإنجليزية و آدابها",
                         icon: "fas fa-language",
-                        description: `اللغة الإنجليزية و آدابها: 
-التخصص يحتاج لقراءة وتحليل، ويعتمد بشكل أساسي على الفهم أكثر من الحفظ، ويحتاح إلى جهد واهتمام كبيرين.
-
- يتناول التخصص المواد التالية:-
-▫️مواد الأدب الإنجليزي:
-من خلال هذه المواد يتعرف الطالب على العصور من التاريخ الأدبي البريطاني والأمريكي وأشهر الأدباء وكتاباتهم التي من خلال تحليلها  تتضح مقاصدها والرسائل منها. 
-بالإضافة إلى مواد أخرى، مثل:المسرحية والرواية والقصة القصيرة التي تشتمل على أعمال أدبية منوعة.
-
+                        description: `اللغة الإنجليزية و آدابها:
+التخصص يحتاج من طلابه قراءة وتحليل، ويعتمد بشكل أساسي على الفهم أكثر من الحفظ، ويحتاح إلى جهد واهتمام كبيرين
+✅ يتناول التخصص المواد التالية:-
+▫️مواد الأدب الانجليزي:
+من خلال هاي المواد يتعرفوا على عصور من التاريخ الأدبي البريطاني والأمريكي وأشهر الأدباء وكتاباتهم التي من خلال تحليلنا لها نعرف مقاصدهم ورسائلهم منها،
+بالإضافة إلى مواد أخرى،مثل:المسرحية والرواية والقصة القصيرة التي تشتمل على أعمال أدبية منوعة.
 ▫️الجزء الثاني من مواده هي مواد تركز على اللغة:
-مثل: (المهارات الشفوية، اللسانيات، الصوتيات، النطق، النحو، الكتابة وغيرهم) ومن خلالهم تقوى المحادثة والكتابة والنطق للأصوات وتتحسن.`,
+مثل: (المهارات الشفوية، اللسانيات، الصوتيات، النطق، النحو، الكتابة وغيرهم) ومن خلالهم تقوي المحادثة والكتابة والنطق للأصوات وتتحسن.
+
+✅ عدد ساعات التخصص 132.
+✅سعر الساعات للتنافس 30 ،موازي 40`,
                         hours: 132,
                         competitivePrice: 30,
                         parallelPrice: 40,
-                        features: [
-                            "دراسة الأدب الإنجليزي عبر العصور",
-                            "تعميق المعرفة باللغة الإنجليزية وقواعدها",
-                            "تنمية مهارات التحدث والكتابة باللغة الإنجليزية",
-                            "القدرة على تحليل النصوص الأدبية الإنجليزية"
-                        ],
                         jobFields: [
                             "التدريس، البنوك، الشركات، الصحافة، المراكز دولية والسياحة أو الترجمة، والعديد من المؤسسات الي بتطلب اللغة الانجليزية",
                             "مدقق لغوي، باحث ، دليل سياحي،كاتب مُستقل، محرر نصوص"
@@ -1699,16 +1655,10 @@
                     {
                         name: "الرياضيات",
                         icon: "fas fa-square-root-alt",
-                        description: "هو العلم الذي يهتم بتحديد العدد، والكم، والقياسات، وقياس الأشكال ويتكون من مفاهيم واصطلاحات تدل على هذه الأمور؛ حيث عرَّف بعض العلماء علم الرياضيات أنَّه لغة العلوم. تُعتبَر الرياضيات بشكل عام من أهم العلوم الأساسية التي لا يُمكن للكثير من العلوم الاستغناء عنها ، يعمل على تنشيط العقل ويزيد من ذكاء الشخص ؛ من خلال التفكير في حل المسائل والتمارين المعقدة والصعبة.",
+                        description: "تخصص الرياضيات :هو العلم الذي يهتم بتحديد العدد، والكم، والقياسات، وقياس الأشكال ويتكون من مفاهيم واصطلاحات تدل على هذه الأمور؛ حيث عرَّف بعض العلماء علم الرياضيات أنَّه لغة العلوم.تُعتبَر الرياضيات بشكل عام من أهم العلوم الأساسية التي لا يُمكن للكثير من العلوم الاستغناء عنها ، يعمل على تنشيط العقل ويزيد من ذكاء الشخص ؛ من خلال التفكير في حل المسائل والتمارين المعقدة والصعبة.✅ عدد ساعات التخصص 132.🔷سعر الساعة تنافس : 25 دينار🔷سعر الساعة موازي : 50 دینار",
                         hours: 132,
                         competitivePrice: 25,
                         parallelPrice: 50,
-                        features: [
-                            "دراسة المفاهيم الرياضية الأساسية والمتقدمة",
-                            "تنمية مهارات التفكير المنطقي والتحليلي",
-                            "القدرة على حل المسائل الرياضية المعقدة",
-                            "تطبيق الرياضيات في مجالات مختلفة"
-                        ],
                         jobFields: [
                             "العمل في بعض مجالات المحاسبة",
                             "العمل في المؤسسات والوزارات المالية",
@@ -1720,16 +1670,10 @@
                     {
                         name: "الكيمياء",
                         icon: "fas fa-flask",
-                        description: "العلم الذي يهتم بدراسة المادة من حيث : خواصها ، و بنيتها ، و تركيبها ، و سلوكها ، و تفاعلاتها و التغيرات التي تطرأ عليها ، وهي الأساس لجميع العلوم الطبيعية. إن الكيمياء من العلوم التي تحتاج القدرة على تحمل الروائح المنبعثة من المواد والتفاعلات الكيماوية والسلامة من الأمراض التنفسية .",
+                        description: "تخصص الكيمياء  :العلم الذي يهتم بدراسة المادة من حيث : خواصها ، و بنيتها ، و تركيبها ، و سلوكها ، و تفاعلاتها و التغيرات التي تطرأ عليها ، وهي الأساس لجميع العلوم الطبيعية.إن الكيمياء من العلوم التي تحتاج القدرة على تحمل الروائح المنبعثة من المواد والتفاعلات الكيماوية والسلامة من الأمراض التنفسية .✅ عدد ساعات التخصص 132 ساعة☑️ أسعار الساعات :🔹 تنافس 25 دینار🔹موازي 50 دینار",
                         hours: 132,
                         competitivePrice: 25,
                         parallelPrice: 50,
-                        features: [
-                            "دراسة خواص المادة وتفاعلاتها",
-                            "التعرف على التركيب الكيميائي للمواد",
-                            "إجراء التجارب الكيميائية العملية",
-                            "فهم التغيرات الكيميائية والفيزيائية"
-                        ],
                         jobFields: [
                             "التدريس",
                             "الصناعات الكيميائية والبتروكيميائية",
@@ -1744,18 +1688,19 @@
                 name: "كلية العلوم التربوية",
                 majors: [
                     {
-                        name: "تربية الطفولة المُبكرة",
+                        name: "الطفولة المُبكرة",
                         icon: "fas fa-baby",
-                        description: "أحد تخصصات كلية العلوم التربوية، يعتبر من أهم التخصصات التربوية، إذ يركّز على تنمية الطفل في سنواته الأولى (من الولادة حتى سن 8 سنوات)، وهي الفترة الأكثر تأثيرًا في تكوين الشخصية وتنمية المهارات المستقبلية.",
+                        description: " تخصص الطُّفولة المُبكرة (مُستحدث)أحد تخصصات كلية العلوم التربوية، يعتبر من أهم التخصصات التربوية، إذ يركّز على تنمية الطفل في سنواته الأولى (من الولادة حتى سن 8 سنوات)، وهي الفترة الأكثر تأثيرًا في تكوين الشخصية وتنمية المهارات المستقبلية.✅عدد ساعات التخصص 132 ساعة، منها 18 ساعة تدريب ميداني.✅سعر الساعة تنافس 25/سعر الساعة موازي 35",
                         hours: 132,
-        fieldHours: 18,
- competitivePrice: 25,
+                        competitivePrice: 25,
                         parallelPrice: 35,
+                        objectives: [
+                            "يخرّج كوادر تربوية مؤهلة أكاديميًا وعمليًا، مزودة بالمعرفة اللازمة لرعاية الطفل وفق معايير الجودة والاعتماد، سعيًا لدعم مؤسسات الطفولة ورعايته على مستوى الوطن.",
+                            "يغطي التخصص مواضيعًا علميّة تربوية ونفسية بغاية تعزيز النمو الشامل للطفل."
+                        ],
                         features: [
                             "تواكب التحول الرقمي من خلال إدماج تكنولوجيات التعليم والتربية الحديثة.",
-                            "تسهم في بناء مجتمع مستدام من خلال تأهيل معلمين قادرين على التربية المستنيرة.",
-                            "تركز على تنمية الطفل في سنواته الأولى",
-                            "تعزز النمو الشامل للطفل من جميع النواحي"
+                            "تسهم في بناء مجتمع مستدام من خلال تأهيل معلمين قادرين على التربية المستنيرة."
                         ],
                         jobFields: [
                             "التعليم في رياض الأطفال والحضانات.",
@@ -1768,17 +1713,11 @@
                     {
                         name: "التربية الخاصة",
                         icon: "fas fa-wheelchair",
-                        description: "أحد تخصصات كلية العلوم التربوية، يركّز التخصص على التعامل مع فئة مختلفة في جميع نواحيها، ونحاول تطوير مهاراتهم حتى يكونوا قادرين على التكيّف مع المجتمع.",
+                        description: "تخصص التربية الخاصة أحد تخصصات كلية العلوم التربوية، يركّز التخصص على التعامل مع فئة مختلفة في جميع نواحيها، ونحاول تطوير مهاراتهم حتى يكونوا قادرين على التكيّف مع المجتمع ✅عدد ساعات التخصص132 ساعة.12 ساعة منهم تدريب ميداني.✅سعر الساعة تنافس25 / موازي 35",
                         hours: 132,
                         fieldHours: 12,
                         competitivePrice: 25,
                         parallelPrice: 35,
-                        features: [
-                            "التعامل مع فئات مختلفة من ذوي الاحتياجات الخاصة",
-                            "تطوير مهارات الطلبة ذوي الاحتياجات الخاصة",
-                            "تمكين الطلبة من التكيف مع المجتمع",
-                            "تقديم الدعم النفسي والتربوي المناسب"
-                        ],
                         jobFields: [
                             "مراكز تعليم وتأهيل ذوي الاحتياجات الخاصة.",
                             "غرف المصادر في المدارس.",
@@ -1788,17 +1727,11 @@
                     {
                         name: "معلم صف",
                         icon: "fas fa-chalkboard-teacher",
-                        description: "أحد تخصصات كلية العلوم التربوية، يهدف إلى إعداد الطالب للتدريس في الصفوف الثلاث الأولى عن طريق تزويده بالكفايات اللازمة في مختلف المواضيع المقررة واستراتيجيات التدريس وتصميم الوسائل التعليمية وإنتاجها وتقييم تعلّم الطلبة وإدارة الصف والتفاعل الصفي وسلوك الطلبة. وأهم شيء إنك قادر على إنشاء وبناء جيل قوي بخلال تدريسك لهذه المراحل العُمرية.",
+                        description: "تخصص معلم صف أحد تخصصات كلية العلوم التربوية، يهدف إلى إعداد الطالب للتدريس في الصفوف الثلاث الأولى عن طريق تزويده بالكفايات اللازمة في مختلف المواضيع المقررة واستراتيجيات التدريس وتصميم الوسائل التعليمية وإنتاجها وتقييم تعلّم الطلبة وإدارة الصف والتفاعل الصفي وسلوك الطلبة🧏وأهم شيء إنك قادر على إنشاء وبناء جيل قوي بخلال تدريسك لهذه المراحل العُمرية.✅عدد ساعات التخصص 132 ساعة، 12 ساعة منهم تدريب ميداني✅سعر الساعة تنافس 25 / موازي 35",
                         hours: 132,
                         fieldHours: 12,
                         competitivePrice: 25,
                         parallelPrice: 35,
-                        features: [
-                            "إعداد الطالب للتدريس في الصفوف الثلاث الأولى",
-                            "تزويد الطالب بالكفايات اللازمة في مختلف المواضيع",
-                            "تعلم استراتيجيات التدريس الحديثة",
-                            "القدرة على إدارة الصف والتفاعل مع الطلبة"
-                        ],
                         jobFields: [
                             "المدارس في كلا القطاعين.",
                             "المراكز والمعاهد الخاصة."
@@ -1807,17 +1740,11 @@
                     {
                         name: "الإرشاد والصحة النفسية",
                         icon: "fas fa-heart",
-                        description: "أحد تخصصات كلية العلوم التربوية، يُركِّز على الدراسة العلمية للسلوكيات الفردية والجماعية، وبالتالي يحل المشكلات، ويهتم بمراحل نمو الإنسان بأنواعها سواءً كانت عقلية، نفسية، أو جسدية.",
+                        description: " تخصص الإرشاد والصحة النفسيةأحد تخصصات كلية العلوم التربوية، يُركِّز على الدراسة العلمية للسلوكيات الفردية والجماعية، وبالتالي يحل المشكلات، ويهتم بمراحل نمو الإنسان بأنواعها سواءً كانت عقلية، نفسية، أو جسدية.✅ عدد ساعات التخصص 132 ساعة منها 12 ساعة تدريب ميداني✅سعر الساعة تنافس 25 / سعر الساعة موازي 35",
                         hours: 132,
                         fieldHours: 12,
                         competitivePrice: 25,
                         parallelPrice: 35,
-                        features: [
-                            "الدراسة العلمية للسلوكيات الفردية والجماعية",
-                            "حل المشكلات النفسية والسلوكية",
-                            "الاهتمام بمراحل نمو الإنسان المختلفة",
-                            "تقديم الدعم النفسي والإرشادي"
-                        ],
                         jobFields: [
                             "المدارس في كلا القطاعين.",
                             "منظمات حقوق الإنسان والمؤسسات المختصة بالعناية بالأسرة والطفل.",
@@ -1832,36 +1759,27 @@
                     {
                         name: "الفقه الحنفي",
                         icon: "fas fa-book",
-                        description: "هو أحد تخصصات كلية المذاهب في جامعة العلوم الإسلامية، صاحبهُ الإمام أبو حنيفة النعمان بن ثابت. يتعلم الطالب من خلاله ما يَخص المذهب من أصول الفقه، العبادات، المعاملات، الأحوال الشخصية، القضاء والسير على مذهب الإمام أبي حنيفة.",
+                        description: "تخصص الفقه الحنفي هو أحد تخصصات كلية المذاهب في جامعة العلوم الإسلامية، صاحبهُ الإمام أبو حنيفة النعمان بن ثابت.يتعلم الطالب من خلاله ما يَخص المذهب من أصول الفقه، العبادات، المعاملات، الأحوال الشخصية، القضاء والسير على مذهب الإمام أبي حنيفة.✅عدد ساعات التخصص 132 ساعة.✅سعر الساعة تنافس 10 /موازي 10.",
                         hours: 132,
                         competitivePrice: 10,
                         parallelPrice: 10,
-                        features: [
-                            "دراسة المذهب الحنفي بأصوله وفروعه",
-                            "التعرف على أحكام العبادات والمعاملات",
-                            "دراسة الأحوال الشخصية والقضاء",
-                            "فهم أصول الفقه الحنفي"
-                        ],
+                        programs: ["البكالوريوس", "الدبلوم المتوسط", "الماجستير"],
                         jobFields: [
                             "وزارة الأوقاف",
                             "المعاهد الشرعية",
                             "وزارة التربية و التعليم",
                             "القضاء والافتاء"
-                        ]
+                        ],
+                        additionalInfo: "كما تحتوي كلية الفقه الحنفي على تخصصات أُخرى مُختلفة تُبنى غالب دراستها على المذهب مع القليل من الاختلافات بحسب التخصص، ألا وهي : تخصص القضاء و الإفتاء، تخصص الإصلاح و الوفاق الأسري."
                     },
                     {
                         name: "الفقه المالكي",
                         icon: "fas fa-book-open",
-                        description: "هو أحد تخصصات كلية المذاهب في جامعة العلوم الإسلامية، يتميز المذهب بأنه مذهب أهل المدينة، و صاحبه الإمام مالك بن أنس رحمه الله تعالى، يتعلم الطالب من خلاله ما يخُص المذهب من عبادات، معاملات، أحوال شخصية،جنايات، وأصول الفقه وغيرها من المواد، وهو أحد المذاهب المُعتمدة بالافتاء بالمملكة الأردنية الهاشمية ويُعامَل معاملة بقيّة المذاهب بالتوظيف في ديوان الخدمة المدنية وغيرها.",
+                        description: " تخصص الفقه المالكي هو أحد تخصصات كلية المذاهب في جامعة العلوم الإسلامية، يتميز المذهب بأنه مذهب أهل المدينة، و صاحبه الإمام مالك بن أنس رحمه الله تعالى، يتعلم الطالب من خلاله ما يخُص المذهب من عبادات، معاملات، أحوال شخصية،جنايات، وأصول الفقه وغيرها من المواد، وهو أحد المذاهب المُعتمدة بالافتاء بالمملكة الأردنية الهاشمية ويُعامَل معاملة بقيّة المذاهب بالتوظيف في ديوان الخدمة المدنية وغيرها.✅عدد ساعات التخصص 132 ساعة✅سعر الساعة تنافس 10 /موازي 10.",
                         hours: 132,
                         competitivePrice: 10,
                         parallelPrice: 10,
-                        features: [
-                            "دراسة المذهب المالكي بأصوله وفروعه",
-                            "التعرف على أحكام العبادات والمعاملات",
-                            "دراسة الأحوال الشخصية والجنايات",
-                            "فهم أصول الفقه المالكي"
-                        ],
+                        programs: ["بكالوريوس", "ماجستير", "دبلوم متوسط"],
                         jobFields: [
                             "وزارة الأوقاف",
                             "المعاهد الشرعية",
@@ -1873,16 +1791,11 @@
                     {
                         name: "الفقه الشافعي",
                         icon: "fas fa-book-reader",
-                        description: "هو أحد تخصصات كلية المذاهب في جامعة العلوم الإسلامية، صاحبهُ الإمام محمد بن إدريس الشافعي، يتعلم الطالب من خلاله ما يخص المذهب الشافعي من عبادات معاملات،أحوال شخصية،جنايات،قضاء وإفتاء، وأصول الفقه،وغيرها من المواد.",
+                        description: "تخصص الفقه الشافعي هو أحد تخصصات كلية المذاهب في جامعة العلوم الإسلامية، صاحبهُ الإمام محمد بن إدريس الشافعي، يتعلم الطالب من خلاله ما يخص المذهب الشافعي من عبادات معاملات،أحوال شخصية،جنايات،قضاء وإفتاء، وأصول الفقه،وغيرها من المواد.✅عدد ساعات التخصص 132 ساعة.✅سعر الساعة تنافس 10 /موازي 10.",
                         hours: 132,
                         competitivePrice: 10,
                         parallelPrice: 10,
-                        features: [
-                            "دراسة المذهب الشافعي بأصوله وفروعه",
-                            "التعرف على أحكام العبادات والمعاملات",
-                            "دراسة الأحوال الشخصية والجنايات",
-                            "فهم أصول الفقه الشافعي"
-                        ],
+                        programs: ["البكالوريوس", "الدبلوم العالي", "الدبلوم المتوسط", "الماجستير"],
                         jobFields: [
                             "دوائر الافتاء المختلفة",
                             "القضاء الشرعي",
@@ -1890,54 +1803,8 @@
                             "التدريس في مدارس وزارة التربية والتعليم",
                             "مختلف المعاهد والمراكز الشرعية و دور تحفيظ القرآن الكريم وتعليم العلوم الشرعية",
                             "مراكز البحوث والدراسات في العلوم الإسلامية"
-                        ]
-                    },
-                    {
-                        name: "الإصلاح الأسري",
-                        icon: "fas fa-home",
-                        description: "هو تخصص تابع لكلية الفقه الحنفي،ورسالته تعليم العلوم الشرعية السنيّة الحنفية بمنهجها الأصيل بالطريقة الأكاديمية المعاصرة محليًا ودوليًا، والتركيز على الجانب الفقهي والسلوكي، وتربية النفس، وأثر انعكاس الجانب العملي للفقه على الجانب الأدبي والتربوي للفرد والمجتمع، علمًا وعملًا، نظرًا وتطبيقًا، وفق منهج تزكوي سنّي سليم.",
-                        hours: 132,
-                        competitivePrice: 10,
-                        parallelPrice: 10,
-                        features: [
-                            "تحويل المنهاج العلمي الشرعي من الأسلوب التقليدي إلى النظام الأكاديمي المعاصر.",
-                            "الفهم الناضج لتراث الأمة الشرعي وإظهار يسر الإسلام العملي حياة ومعاملة ومساواة.",
-                            "القضاء بما يحقق العدالة والإفتاء بما يتناسب واقع المجتمعات وحاجته.",
-                            "إبراز جوانب الإسلام السياسية والاقتصادية والدعوة الدينية المعتدلة في حفظ الفرد والدولة.",
-                            "الارتقاء السلوكي والتهذيب الأخلاقي والنضج الفكري للدارس والمجتمع."
                         ],
-                        jobFields: [
-                            "الرقابة الشرعية.",
-                            "ممارسة المحاماة الشرعية.",
-                            "سلك القضاء الشرعي.",
-                            "التدريس.",
-                            "الإمامة والخطابة والوعظ.",
-                            "الإفتاء في جميع مؤسساته.",
-                            "الاستشارات الزوجية والاجتماعية."
-                        ]
-                    },
-                    {
-                        name: "القضاء والافتاء",
-                        icon: "fas fa-gavel",
-                        description: "هو تخصص تابع لكليّة الفقه الحنفي، ورسالتهُ تعليم العلوم الشرعية السنية الحنفية بمنهجها الأصيل بالطريقة الأكاديمية المعاصرة محليًا ودوليًا، والتركيز على الجانب الفقهي، قضاءً وإفتاءً، أصولًا وفروعًا، تقنينًا وتفريعًا، تطبيقًا وتعليمًا، ببيان المحاور الرئيسة في أصول المحاكمات، وتصوّر القضايا والأحكام والتنفيذ في القضاء، ومعرفة درجات التقاضي وأحكام التَّرِكات.",
-                        hours: 132,
-                        competitivePrice: 10,
-                        parallelPrice: 10,
-                        features: [
-                            "تحويل المنهاج العلمي الشرعي من الأسلوب التقليدي إلى النظام الأكاديمي المعاصر.",
-                            "الفهم الناضج لتراث الأمة الشرعي وإظهار يُسر الإسلام العملي حياة ومعاملة ومساواة.",
-                            "القضاء بما يحقق العدالة والإفتاء بما يتناسب واقع المجتمعات وحاجته.",
-                            "إبراز جوانب الإسلام السياسية، والاقتصادية، والدعوة الدينية المعتدلة في حفظ الفرد والدولة.",
-                            "الارتقاء السلوكي والتهذيب الأخلاقي والنضج الفكري للدارس والمجتمع."
-                        ],
-                        jobFields: [
-                            "سلك القضاء الشرعي.",
-                            "ممارسة المحاماة الشرعية.",
-                            "تدريس التربية الإسلامية.",
-                            "الإمامة والخطابة والوعظ.",
-                            "الإفتاء في مؤسساته المختلفة.",
-                            "الرقابة الشرعية."
-                        ]
+                        additionalInfo: "تطرح الكلية أيضًا برامج علّمية أكاديمية مجانية في كل فصل تعين الطلبة على تنمية تحصيلهم العلمي."
                     }
                 ]
             },
@@ -1947,20 +1814,14 @@
                     {
                         name: "الفنون الإسلامية والتطبيقية",
                         icon: "fas fa-palette",
-                        description: "هو تخصص موجود فقط في جامعة العلوم الإسلامية في الأردن. التخصص بجمع بين الفن الإسلامي والتصميم الداخلي وفيه مساقات للصنائع اليدوية و بأول سنة ونصف تكون دراسة تحضيرية، يتم دراسة كل أنواع الفنون الإسلامي و التصميم الداخلي: التصميم الداخلي (رسم معماري، رسم حر، أثاث..)، الفنون الإسلامية (خط عربي، زخارف نباتية (توريق وتذهيب) وهندسية(هندسة فاضلة)، فن الزليج(أعمال الخزف والطين). بعد السنة التحضيرية، يقدّم الطالب أعماله على دكاترته ورئيس القسم والعميد ومن ثم يختار الفرع الذي أحبّ أن يتخصص فيه، ويتخصص على هذا الأساس.",
+                        description: "تخصص الفنون الإسلامية والتطبيقية هو تخصص موجود فقط في جامعة العلوم الإسلامية في الأردن التخصص يجمع بين الفن الإسلامي والتصميم الداخلي وفيه مساقات للصنائع اليدوية و بأول سنة ونصف تكون عبارة عن دراسة تحضيرية، يتم دراسة كل أنواع الفنون الإسلامي و التصميم الداخلي:▫️التصميم الداخلي (رسم معماري، رسم حر، أثاث..).▫️الفنون الإسلامية (خط عربي، زخارف نباتية (توريق وتذهيب) وهندسية(هندسة فاضلة)، فن الزليج(أعمال الخزف والطين).بعد السنة التحضيرية، يقدّم الطالب أعماله على دكاترته ورئيس القسم والعميد ومن ثم يختار الفرع الذي أحبّ أن يتخصص فيه، ويتخصص على هذا الأساس. ✅عدد ساعات التخصص132.✅سعر الساعات، التنافس 30،الموازي 40.",
                         hours: 132,
                         competitivePrice: 30,
                         parallelPrice: 40,
-                        features: [
-                            "الجمع بين الفن الإسلامي والتصميم الداخلي",
-                            "دراسة الصنائع اليدوية الإسلامية",
-                            "التخصص في الخط العربي والزخارف الإسلامية",
-                            "دراسة فنون الخزف والطين"
-                        ],
                         jobFields: [
                             "التدريس الحكومي والخاص",
                             "شركات هندسية أو مصانع",
-                            "وأهم ميزة: أنك تستطيع فتح مشروعك الخاص سواء من البيت، أو من المشغل"
+                            "وأهم ميزة: أنك تستطيع فتح مشروعك الخاص سواء من البيت، أو من المشغل👩‍🎨👨‍🎨"
                         ]
                     }
                 ]
@@ -1971,16 +1832,10 @@
                     {
                         name: "المحاسبة",
                         icon: "fas fa-file-invoice-dollar",
-                        description: " هو أحد تخصصات كلية المال والأعمال وهي عملية تسجيل المعلومات و ترتيبها وتلخيصها وتقديهما بشكل واضح ومفهوم، حيث يمكن قراءتها و فهمها من قبل الشركة أو الجهة المهتمة كالمستثمرين مثلًا، بحيث تكون القوائم و التقارير المقدمة من المحاسب مرتبطة بمستوى أداء الشركة. عدد ساعات التخصص 132 ساعة منها 3 ساعات تدريب ميداني  .",
+                        description: "تخصص المحاسبة هو أحد تخصصات كلية المال والأعمال وهو عبارة عن عملية تسجيل المعلومات و ترتيبها وتلخيصها وتقديهما بشكل واضح ومفهوم، حيث يمكن قراءتها و فهمها من قبل الشركة أو الجهة المهتمة كالمستثمرين مثلًا، بحيث تكون القوائم و التقارير المقدمة من المحاسب مرتبطة بمستوى أداء الشركة.✅عدد ساعات التخصص 132 ساعة،منها 3ساعات ميداني.✅️سعر الساعة تنافس 40 / موازي 60",
                         hours: 132,
                         competitivePrice: 40,
                         parallelPrice: 60,
-                        features: [
-                            "تسجيل المعلومات المالية وترتيبها",
-                            "إعداد التقارير المالية بشكل واضح ومفهوم",
-                            "ربط التقارير المالية بأداء الشركة",
-                            "القدرة على تحليل البيانات المالية"
-                        ],
                         jobFields: [
                             "مدير أو مدقق حسابات",
                             "البنوك",
@@ -1994,17 +1849,11 @@
                     {
                         name: "نظم المعلومات الإدارية",
                         icon: "fas fa-laptop",
-                        description: "هو أحد تخصصات كلية المال والأعمال، وهو خليط بين إدارة الأعمال وال IT. يعتبر ضمن التخصصات المطلوبة لدى العديد من الدول، تحديدًا للدول المتقدمة.",
+                        description: "تخصص نظم المعلومات الإدارية هو أحد تخصصات كلية المال والأعمال، وهو خليط بين إدارة الأعمال وال ITيعتبر ضمن التخصصات المطلوبة لدى العديد من الدول، تحديدًا الدول المتقدمة.✅ عدد ساعات التخصص 135 منها 3 ميداني.✅سعر الساعة تنافس 45 / سعر الساعة موازي 50",
                         hours: 135,
                         fieldHours: 3,
                         competitivePrice: 45,
                         parallelPrice: 50,
-                        features: [
-                            "الجمع بين إدارة الأعمال وتكنولوجيا المعلومات",
-                            "تطوير نظم المعلومات الإدارية",
-                            "تحليل احتياجات المؤسسات من نظم المعلومات",
-                            "تطبيق التكنولوجيا في تحسين العمليات الإدارية"
-                        ],
                         jobFields: [
                             "اخصائي شبكات حاسوب ومواقع انترنت",
                             "مبرمج حاسوب",
@@ -2017,16 +1866,10 @@
                     {
                         name: "المصارف الإسلامية",
                         icon: "fas fa-hand-holding-usd",
-                        description: "هو أحد تخصصات كلية المال والأعمال ويهدف الى اعداد طلبة يجمعون بين العلوم الاقتصادية وعلوم الشريعة الاسلامية حيث يدرس الطلبة مبادئ ومرتكزات الاقتصاد الاسلامي ومجالات تطبيقها ونشاطاتها الاستثمارية. تقوم دارسة هذا التخصص على رفد المجتمع بالكفاءات العلمية في مجال الصرافة الإسلامية والتغلب على المشكلات والعقبات الاقتصادية في المجتمع بالاستفادة من الخبرة المصرفية العملية، والعمق البحثي الأكاديمي يوجد تدريب ميداني ولكن لا يحتسب من الساعات .",
+                        description: "تخصص المصارف الإسلامية هو أحد تخصصات كلية المال والأعمال، ويهدف الى إعداد طلبة يجمعون بين العلوم الاقتصادية وعلوم الشريعة الإسلامية، حيث يدرس الطلبة مبادئ ومرتكزات الإقتصاد الإسلامي ومجالات تطبيقها ونشاطاتها الإستثمارية.🔹تقوم دراسة هذا التخصص على رفد المجتمع بالكفاءات العلمية في مجال الصرافة الإسلامية والتغلب على المشكلات والعقبات الإقتصادية في المجتمع بالإستفادة من الخبرة المصرفية العملية، والعمق البحثي الأكاديمي.✅ عدد ساعات التخصص 138ساعة، 0 ساعات منها ميداني (يوجد تدريب ميداني إجباري لكن لا يحسب ضمن ساعات الخطة الدراسية).✅ سعر الساعة 30 تنافس / موازي 40",
                         hours: 138,
                         competitivePrice: 30,
                         parallelPrice: 40,
-                        features: [
-                            "الجمع بين العلوم الاقتصادية وعلوم الشريعة الإسلامية",
-                            "دراسة مبادئ ومرتكزات الاقتصاد الإسلامي",
-                            "التعرف على مجالات تطبيق الاقتصاد الإسلامي",
-                            "فهم نشاطات المصارف الإسلامية الاستثمارية"
-                        ],
                         jobFields: [
                             "التدريس",
                             "البنوك والمصارف الإسلامية",
@@ -2037,17 +1880,11 @@
                     {
                         name: "العلوم المالية والمصرفية",
                         icon: "fas fa-coins",
-                        description: "هو أحد تخصصات كلية المال والأعمال، ويهدف هذا القسم إلى تزويد الطلاب بمعارف متنوعة ومهارات تطبيقية تؤهلهم بصورة مناسبة للتفاعل مع بيئة الأعمال الحديثة، وذلك من خلال الربط بين المفاهيم المالية والاقتصادية ووقائع الأعمال في البنوك والأسواق المالية وشركات التامين، بحيث يستطيع الخريجون في هذا التخصص الالتحاق بالعمل في مختلف قطاعات النشاط الاقتصادي الحكومي والخاص بما فيها مؤسسات الجهاز المصرفي من بنك مركزي، وبنوك تجارية وبنوك إسلامية بالإضافة إلى شركات التأمين وشركات الاستثمار وغيرها من المؤسسات المالية.",
+                        description: "تخصص العلوم المالية والمصرفية هو أحد تخصصات كلية المال والأعمال، ويهدف هذا القسم إلى تزويد الطلاب بمعارف متنوعة ومهارات تطبيقية تؤهلهم بصورة مناسبة للتفاعل مع بيئة الأعمال الحديثة، وذلك من خلال الربط بين المفاهيم المالية والاقتصادية ووقائع الأعمال في البنوك والأسواق المالية وشركات التأمين، بحيث يستطيع الخريجون في هذا التخصص الإلتحاق بالعمل في مختلف قطاعات النشاط الاقتصادي الحكومي والخاص، بما فيها مؤسسات الجهاز المصرفي من بنك مركزي، وبنوك تجارية وبنوك إسلامية بالإضافة إلى شركات التأمين وشركات الاستثمار وغيرها من المؤسسات المالية.✅عدد ساعات التخصص 132، منها 3 ساعات ميداني.✅رسوم الساعات 30 تنافس  50 موازي",
                         hours: 132,
                         fieldHours: 3,
                         competitivePrice: 30,
                         parallelPrice: 50,
-                        features: [
-                            "تزويد الطلاب بمعارف متنوعة في العلوم المالية",
-                            "تنمية المهارات التطبيقية في المجال المصرفي",
-                            "القدرة على التفاعل مع بيئة الأعمال الحديثة",
-                            "فهم المفاهيم المالية والاقتصادية وتطبيقاتها"
-                        ],
                         jobFields: [
                             "المصارف على اختلاف أنواعها",
                             "شركات الاستثمار",
@@ -2062,16 +1899,10 @@
                     {
                         name: "إدارة الأعمال",
                         icon: "fas fa-briefcase",
-                        description: "أحد تخصصات كلية المال والأعمال، يُعبِّر عن العمليات، الأنشطة والمهام التي تنظّم الأعمال بجميع أنواعها مثل أعمال الشركات، المؤسسات، والمنظمات، وتشمل هذه الأعمال عمليات الرقابة، التخطيط، التنظيم، الإشراف، القيادة والمتابعة.",
+                        description: "تخصص إدارة الأعمال أحد تخصصات كلية المال والأعمال، يُعبِّر عن العمليات، الأنشطة والمهام التي تنظّم الأعمال بجميع أنواعها مثل أعمال الشركات، المؤسسات، والمنظمات ،وتشمل هذه الأعمال عمليات الرقابة، التخطيط، التنظيم، الإشراف، القيادة والمتابعة.✅ عدد ساعات التخصص 132ساعة✅سعر الساعة تنافس 40  سعر الساعة موازي 50",
                         hours: 132,
                         competitivePrice: 40,
                         parallelPrice: 50,
-                        features: [
-                            "تنظيم العمليات والأنشطة في المؤسسات",
-                            "التخطيط والرقابة على الأعمال",
-                            "الإشراف والقيادة في المؤسسات",
-                            "متابعة وتقييم أداء المؤسسات"
-                        ],
                         jobFields: [
                             "إداري أو مُساعد إداري",
                             "مدير قسم (مبيعات، موارد بشرية، إنتاج، مشتريات)",
@@ -2086,16 +1917,10 @@
                     {
                         name: "الفقه وأصوله",
                         icon: "fas fa-balance-scale",
-                        description: "هو تخصص يجعلك مُطّلع على أقوال الفقهاء الأربعة في جميع مسائل الفقه، والتعرّف على الأحكام الشرعية في مجال العبادات، المعاملات، الأحوال الشخصية، الأصول في الفقه الإسلامي من كتاب، سنة، إجماع، وقياس، ويسلّط الضوء على قضايا السياسة الشرعية مثل: نظام الحكم والمال، ونظام الإدارة في الإسلام، والوقوف على المسائل المعاصرة في الفتوى،والفقه، والحكم المناسب لها، والتخصص يشترك مع تخصص القانون بموادٍ كثيرة.",
+                        description: "تخصص الفقه وأصولههو تخصص يجعلك مُطّلع على أقوال الفقهاء الأربعة في جميع مسائل الفقه، والتعرّف على الأحكام الشرعية في مجال العبادات، المعاملات، الأحوال الشخصية، الأصول في الفقه الإسلامي من كتاب، سنة، إجماع، وقياس، ويسلّط الضوء على قضايا السياسة الشرعية مثل: نظام الحكم والمال، ونظام الإدارة في الإسلام، والوقوف على المسائل المعاصرة في الفتوى،والفقه، والحكم المناسب لها، والتخصص يشترك مع تخصص القانون بموادٍ كثيرة.✅ عدد ساعات التخصص 132.✅سعر الساعات تنافس 15 دينار/ موازي 15 دينار.",
                         hours: 132,
                         competitivePrice: 15,
                         parallelPrice: 15,
-                        features: [
-                            "الإطلاع على أقوال الفقهاء الأربعة",
-                            "التعرف على الأحكام الشرعية في مختلف المجالات",
-                            "دراسة أصول الفقه الإسلامي",
-                            "فهم قضايا السياسة الشرعية"
-                        ],
                         jobFields: [
                             "المحاكم الشرعية",
                             "الرقابة الشرعية",
@@ -2107,120 +1932,69 @@
                     {
                         name: "القانون",
                         icon: "fas fa-gavel",
-                        description: "هو تخصص له علاقة كبيرة بالحياة الاجتماعية، ينظّم سلوك الناس، والعلاقة بينهم،والعلاقة بين الدولة وأفرادها أو الدولة والدول الأخرى الخ... .",
+                        description: "تخصص القانونهو تخصص له علاقة كبيرة بالحياة الاجتماعية، ينظّم سلوك الناس، والعلاقة بينهم،والعلاقة بين الدولة وأفرادها أو الدولة والدول الأخرى الخ... .✅عدد ساعات التخصص 141.✅سعر الساعات 30 تنافس، 40 موازي.",
                         hours: 141,
                         competitivePrice: 30,
                         parallelPrice: 40,
-                        features: [
-                            "تنظيم السلوك والعلاقات في المجتمع",
-                            "فهم العلاقة بين الدولة والأفراد",
-                            "دراسة العلاقات الدولية",
-                            "القدرة على تطبيق القوانين والأنظمة"
-                        ],
                         jobFields: [
                             "محامي، وذلك بعد تدريب لمدة سنتين في مكتب محاماة معتمد للنقابة و اجتياز امتحانات النقابة الكتابية و الشفوية و أخذ رخصة ممارسة المهنة من النقابة",
                             "قاضي، بعد دخول المعهد القضائي و الذي تحتاج دخوله أن تكون من أوائل دفعتك و غيرها من الشروط",
                             "مستشار قانوني و هنا تحتاج فقط لشهادة البكالوريوس",
                             "موظف بالشركات أو الوزارات أو الدوائر الحكومية المكاتب بالقسم القانوني",
                             "مؤسسات حقوق الإنسان"
+                       
+                    
                         ]
                     }
                 ]
             },
-            daawa: {
-                name: "كلية الدعوة وأصول الدين",
-                majors: [
-                    {
-                        name: "أصول الدين",
-                        icon: "fas fa-mosque",
-                        description: `هو تخصص يهدف إلى تعميق فهم العقيدة الإسلامية، علوم القرآن،الحديث، والفكر الإسلامي، مع تطوير مهارات التحليل النقدي، وتطبيق الدين في العصر الحديث.
-و يزوّد الطلاب بالعلم الشرعي المتخصص في استنباط الأحكام وتحليل النصوص، ويدرس موادًا مثل: علوم القرآن، التفسير، الحديث، والفلسفة الإسلامية؛ لإعداد متخصصين قادرين على مواجهة التحديات الفكرية بأسس فقهية متينة.`,
-                        hours: 132,
-                        competitivePrice: 15,
-                        parallelPrice: 15,
-                        features: [
-                            "تعميق فهم العقيدة الإسلامية",
-                            "دراسة علوم القرآن والحديث",
-                            "تطوير مهارات التحليل النقدي",
-                            "تطبيق الدين في العصر الحديث"
-                        ],
-                        jobFields: [
-                            "التدريس",
-                            "مراكز تحفيظ القرآن، والأوقاف",
-                            "مجال البحث العلمي، وإمكانية أعطاء دورات بالمراكز التدريبية",
-                            "الإمامة والخطابة للذكور"
-                        ]
-                    },
-                    {
-                        name: "الأداء الصوتي والتجويد",
-                        icon: "fas fa-microphone-alt",
-                        description: `هو تخصص شرعي تابع لكلية الدعوة وأصول الدين، يجمع بين قواعد التجويد ومهارات الأداء النغمي عملًا بقول النبي : «زينوا القرآن باصواتكم»، واقتداءً بأصحاب الصوت الندي بالقرآن، مثل: أبي موسى الأشعري -رضي الله عنه- الذي أوتيَ مزمارًا من مزاميرِ آل داود -عليه السلام- ، وحينما علم بسماع النبي ﷺ له قال : لو علمتُ لحبرته تحبيرًا.
-
-هدف التخصص:
-يهدف إلى إنشاء حاضنة علمية لأصحاب الأصوات الحسنة، وتطويرها في قالب علمي أكاديمي شرعي لتزويد المجتمع والمؤسسات الدينية والتعليمية والإعلامية بالقُرّاء المتقنين، ومعلمي القرآن الحاذقين، والمؤذنين البارعين، والأئمة الماهرين.
-
-ولتحقيق هذا الهدف تم وضع خطة دراسية تفصيلية يقوم من خلالها الطالب بدراسة مواد التلاوة والتجويد نظرياً وعملياً، وحفظ بعض أجزاء القرآن، مع التعرف على بعض أحكام القراءات، ثم دراسة المقامات الصوتية الرئيسية والفرعية نظرياً وعملياً، مع التطبيق على الأذان والقرآن والموشحات والأناشيد، بالإضافة إلى دراسة مواد أساسية في علوم الشريعة، مثل: التفسير والفقه والحديث والعقيدة والسيرة النبوية والتزكية.`,
-                        hours: 132,
-                        competitivePrice: 10,
-                        parallelPrice: 10,
-                        features: [
-                            "الجمع بين قواعد التجويد ومهارات الأداء النغمي",
-                            "دراسة التلاوة والتجويد نظرياً وعملياً",
-                            "تعلم المقامات الصوتية الرئيسية والفرعية",
-                            "التطبيق على الأذان والقرآن والموشحات والأناشيد"
-                        ],
-                        jobFields: [
-                            "التدريس",
-                            "الإمامة والخطابة للذكور",
-                            "وزارة الأوقاف"
-                        ]
-                    },
-                    {
-                        name: "القراءات القرآنية",
-                        icon: "fas fa-book-quran",
-                        description: `هو تخصص مُعتمد من وزارة التعليم العالي، ويقدّم عدّة مواضيع..
-
-مواضيع التخصص:
-تعريف عام بالقراءات والقرّاء. 
-عرض القرآن الكريم من أوّله إلى آخره بالقراءات العشر. 
-رسم المصحف وضبطه وتاريخه.
-الدّراسات الصوتية في التجويد. 
-دفع الشبهات عن القرآن الكريم والقراءات وغيرها بالإضافة إلى مواد أخرى تهتم بِـ : أصول الدين والفقه والتفسير والحديث والدعوة والسيرة والبلاغة والنحو.`,
-                        hours: 132,
-                        competitivePrice: 15,
-                        parallelPrice: 15,
-                        features: [
-                            "دراسة القراءات القرآنية المختلفة",
-                            "التعرف على رسم المصحف وضبطه",
-                            "دراسات صوتية في التجويد",
-                            "دفع الشبهات عن القرآن الكريم والقراءات"
-                        ],
-                        jobFields: [
-                            "التدريس",
-                            "الإمامة والخطابة للذكور",
-                            "وزارة الأوقاف"
-                        ]
-                    }
-                ]
-            },
+            
+sharia: {
+    name: "كلية الدعوة وأصول الدين",
+    majors: [
+        {
+            name: "أصول الدين",
+            icon: "fas fa-book",
+            description: "تخصص أصول الدين هو تخصص يهدف إلى تعميق فهم العقيدة الإسلامية، علوم القرآن،الحديث، والفكر الإسلامي، مع تطوير مهارات التحليل النقدي، وتطبيق الدين في العصر الحديث.و يزوّد الطلاب بالعلم الشرعي المتخصص في استنباط الأحكام وتحليل النصوص، ويدرس موادًا مثل: علوم القرآن، التفسير، الحديث، والفلسفة الإسلامية؛ لإعداد متخصصين قادرين على مواجهة التحديات الفكرية بأسس فقهية متينة.✅ عدد ساعات التخصص 132.✅ سعر الساعات، تنافس 15 /موازي 15.",
+            hours: 132,
+            competitivePrice: 15,
+            parallelPrice: 15,
+            jobFields: ["التدريس", "مراكز تحفيظ القرآن و الأوقاف", "الإمامة والخطابة للذكور", "  مجال البحث العلمي، وإمكانية أعطاء دورات بالمراكز التدريبية "]
+        },
+        {
+            name: "الأداء الصوتي والتجويد", 
+            icon: "fas fa-microphone-alt",
+            description: "تخصص الأداء الصوتي والتجويد هو تخصص شرعي تابع لكلية الدعوة وأصول الدين، يجمع بين قواعد التجويد ومهارات الأداء النغمي عملًا بقول النبي : «زينوا القرآن باصواتكم»، واقتداءً بأصحاب الصوت الندي بالقرآن، مثل: أبي موسى الأشعري -رضي الله عنه- الذي أوتيَ مزمارًا من مزاميرِ آل داود -عليه السلام- ، وحينما علم بسماع النبي ﷺ له قال : لو علمتُ لحبرته تحبيرًا.✅ هدف التخصص:▫️يهدف إلى إنشاء حاضنة علمية لأصحاب الأصوات الحسنة، وتطويرها في قالب علمي أكاديمي شرعي لتزويد المجتمع والمؤسسات الدينية والتعليمية والإعلامية بالقُرّاء المتقنين، ومعلمي القرآن الحاذقين، والمؤذنين البارعين، والأئمة الماهرين.ولتحقيق هذا الهدف تم وضع خطة دراسية تفصيلية يقوم من خلالها الطالب بدراسة مواد التلاوة والتجويد نظرياً وعملياً، وحفظ بعض أجزاء القرآن، مع التعرف على بعض أحكام القراءات، ثم دراسة المقامات الصوتية الرئيسية والفرعية نظرياً وعملياً، مع التطبيق على الأذان والقرآن والموشحات والأناشيد، بالإضافة إلى دراسة مواد أساسية في علوم الشريعة، مثل: التفسير والفقه والحديث والعقيدة والسيرة النبوية والتزكية.✅ عدد ساعات التخصص 132 ساعة.",
+            hours: 132,
+            competitivePrice: 15,
+            parallelPrice: 15,
+            jobFields: ["التدريس", "الإمامة والخطابة للذكور", "وزارة الأوقاف"]
+        },
+        {
+            name: "القراءات القرآنية",
+            icon: "fas fa-quran", 
+            description: "تخصص القراءات القرآنيةهو تخصص مُعتمد من وزارة التعليم العالي، ويقدّم عدّة مواضيع..✅ مواضيع التخصص:▫️تعريف عام بالقراءات والقرّاء.▫️عرض القرآن الكريم من أوّله إلى آخره بالقراءات العشر.▫️ رسم المصحف وضبطه وتاريخه.▫️ الدّراسات الصوتية في التجويد.▫️ دفع الشبهات عن القرآن الكريم والقراءات وغيرها بالإضافة إلى مواد أخرى تهتم بِـ : أصول الدين والفقه والتفسير والحديث والدعوة والسيرة والبلاغة والنحو.",
+            hours: 132,
+            competitivePrice: 15,
+            parallelPrice: 15,
+            jobFields: ["التدريس", "الإمامة والخطابة", "وزارة الأوقاف", "مراكز تحفيظ القرآن"]
+        }
+    ]
+},
+            
             it: {
                 name: "كلية تكنولوجيا المعلومات",
                 majors: [
                     {
                         name: "علوم الحاسوب",
                         icon: "fas fa-laptop-code",
-                        description: "علوم الكمبيوتر أو الحوسبة هو دراسة العمليات التي تتفاعل مع البيانات والتي يمكن تمثيلها كبيانات في شكل برامج. يتيح استخدام الخوارزميات لمعالجة المعلومات الرقمية وتخزينها وإبلاغها. يدرس عالم الحاسوب نظرية الحوسبة وممارسة تصميم أنظمة البرمجيات.",
+                        description: "تخصص علم الحاسوب️يُعرَف بعلوم الكمبيوتر أو الحوسبة،و هو دراسة العمليات التي تتفاعل مع البيانات والتي يمكن تمثيلها كبيانات في شكل برامج، ويُتيح استخدام الخوارزميات لمعالجة المعلومات الرقمية وتخزينها وإبلاغها.ويدرس عالم الحاسوب نظرية الحوسبة وممارسة تصميم أنظمة البرمجيات.✅ عدد ساعات التخصص 132، منها 3 ساعات ميداني ،و 3 ساعات مشروع تخرج.✅سعر الساعات 45 تنافس / 60 موازي.",
                         hours: 132,
                         fieldHours: 3,
                         projectHours: 3,
                         competitivePrice: 45,
                         parallelPrice: 60,
-                        features: [
-                            "دراسة نظرية الحوسبة وممارسة تصميم أنظمة البرمجيات",
-                            "استخدام الخوارزميات لمعالجة المعلومات الرقمية",
-                            "القدرة على تخزين وإبلاغ المعلومات",
-                            "تصميم وتطوير أنظمة البرمجيات"
-                        ],
+                        acceptanceRate: 87.10,
                         jobFields: [
                             "مبرمج", "التدريس", "محلل معلومات", "مندوب مبيعات لمعدات وبرمجيات الحاسوب",
                             "مطور نظم", "مدير شبكة حاسوبية", "مدير قواعد بيانات", "مشرف مختبر",
@@ -2230,18 +2004,13 @@
                     {
                         name: "أمن وسرية الشبكات والمعلومات",
                         icon: "fas fa-shield-alt",
-                        description: "يُعرَّف تخصص \"أمن الشبكات\"، والذي يُطلَق عليه باللغة الإنجليزية \"Cyber Security\"، أو في بعض الأحيان \"Network Security\"، أنَّه توفير الحماية القصوى للبيانات والمعلومات في الشبكات بهدف تجنُّب المخاطر التي قد تلحق بها مثل الإختراق. ومن الجدير بالذكر أنَّ هذه المخاطر قد تكون داخلية، أم خارجية. ولهذا، يُوجَد وسائل وأدوات لازمة لحمايتها.",
+                        description:"تخصص أمن وسرية الشبكات والمعلومات يُعرَف بتخصص أمن الشبكات وهو توفير الحماية القصوى للبيانات والمعلومات في الشبكات، بهدف تجنُّب المخاطر التي قد تَلحق بها مثل الإختراق، ومن الجدير بالذكر أنَّ هذه المخاطر قد تكون داخلية،أو خارجية. ولهذا، توجَد وسائل وأدوات لازمة لحمايتها.",
                         hours: 132,
                         fieldHours: 3,
                         projectHours: 3,
                         competitivePrice: 45,
                         parallelPrice: 60,
-                        features: [
-                            "توفير الحماية القصوى للبيانات والمعلومات في الشبكات",
-                            "تجنب المخاطر الداخلية والخارجية",
-                            "استخدام وسائل وأدوات حماية المعلومات",
-                            "القدرة على مواجهة التهديدات الإلكترونية"
-                        ],
+                        acceptanceRate: 82.8,
                         jobFields: [
                             "أخصائي آمن شبكات", "مستشار في مجال آمن الشبكات", "آمن أنظمة التشغيل",
                             "آمن قواعد البيانات", "الجرائم الإلكترونية والتحقيقات الجنائية",
@@ -2251,18 +2020,12 @@
                     {
                         name: "هندسة البرمجيات",
                         icon: "fas fa-code",
-                        description: "هو عبارة عن عملية تحليل احتياجات المستخدم، وتصميم وبناء واختبار تطبيقات المستخدم النهائي، والتي تلبي هذه الاحتياجات من خلال استخدام لغات البرمجة. وهو تطبيق المبادئ الهندسية على تطوير البرمجيات، على عكس البرمجة البسيطة، تُستخدم هندسة البرمجيات لأنظمة البرامج الأكبر والأكثر تعقيدًا، و تُستخدم كنُظم مهمة للشركات والمؤسسات.",
+                        description:" تخصص هندسة البرمجيات هو عبارة عن عملية تحليل احتياجات المستخدم، وتصميم وبناء واختبار تطبيقات المستخدم النهائي، والتي تلبي هذه الاحتياجات من خلال استخدام لغات البرمجة. وهو تطبيق المبادئ الهندسية على تطوير البرمجيات، على عكس البرمجة البسيطة،تُستخدم هندسة البرمجيات لأنظمة البرامج الأكبر والأكثر تعقيدًا، و تُستخدم كنُظم مهمة للشركات والمؤسسات.✅ عدد ساعات التخصص 132، منها 3 ساعات ميداني،و 3 ساعات مشروع تخرج.✅سعر الساعات تنافس 45 / موازي .",
                         hours: 132,
                         fieldHours: 3,
                         projectHours: 3,
                         competitivePrice: 45,
                         parallelPrice: 60,
-                        features: [
-                            "تحليل احتياجات المستخدم وتصميم التطبيقات",
-                            "بناء واختبار تطبيقات المستخدم النهائي",
-                            "استخدام لغات البرمجة المختلفة",
-                            "تطبيق المبادئ الهندسية في تطوير البرمجيات"
-                        ],
                         jobFields: [
                             "مُبرمج",
                             "متخصص دعم خدمات تكنولوجيا المعلومات",
@@ -2279,18 +2042,12 @@
                     {
                         name: "نظم شبكات الحاسوب",
                         icon: "fas fa-network-wired",
-                        description: "هو نظام لربط جهازين أو أكثر باستخدام إحدى تقنيات نُظم الإتصالات من أجل تبادل المعلومات والموارد والبيانات بينها، المتاحة للشبكة مثل الآلة، الطابعة،أو البرامج التطبيقية أيًّا كان نوعها وكذلك تسمح بالتواصل المباشر بين المستخدمين. وبشكل عام تعتبر دراسة شبكات الحاسوب أحد فروع علم الاتصالات.",
+                        description: "تخصص نظم شبكات الحاسوب هو نظام لربط جهازين أو أكثر باستخدام إحدى تقنيات نُظم الإتصالات من أجل تبادل المعلومات والموارد والبيانات بينها، المتاحة للشبكة مثل الآلة، الطابعة،أو البرامج التطبيقية أيًّا كان نوعها وكذلك تسمح بالتواصل المباشر بين المستخدمين. وبشكل عام تعتبر دراسة شبكات الحاسوب أحد فروع علم الاتصالات.✅ عدد ساعات التخصص 132، منها 3 ساعات ميداني،و 3 ساعات مشروع تخرج.✅ سعر الساعات 45 تنافس / 60 موازي.",
                         hours: 132,
                         fieldHours: 3,
                         projectHours: 3,
                         competitivePrice: 45,
                         parallelPrice: 60,
-                        features: [
-                            "ربط الأجهزة باستخدام تقنيات الاتصالات",
-                            "تبادل المعلومات والموارد والبيانات",
-                            "إتاحة الموارد المشتركة في الشبكة",
-                            "تمكين التواصل المباشر بين المستخدمين"
-                        ],
                         jobFields: [
                             "مُدير مشروع تكنولوجيا المعلومات",
                             "محلل آمن تكنولوجيا المعلومات",
@@ -2321,7 +2078,6 @@
         const grantsBtn = document.getElementById('grants-btn');
         const backToGrants = document.getElementById('back-to-grants');
         const backToGrantsDetails = document.getElementById('back-to-grants-details');
-        const loadingOverlay = document.getElementById('loading-overlay');
         
         const faqModal = document.getElementById('faq-modal');
         const transportModal = document.getElementById('transport-modal');
@@ -2345,13 +2101,6 @@
         const closeImageModal = document.querySelector('.close-image-modal');
         const modalImage = document.getElementById('modal-image');
         const imageButtons = document.querySelectorAll('.image-btn');
-        
-        // إخفاء مؤشر التحميل بعد تحميل الصفحة
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                loadingOverlay.classList.add('hidden');
-            }, 1500);
-        });
         
         // فتح/إغلاق القائمة الجانبية
         menuToggle.addEventListener('click', () => {
@@ -2566,6 +2315,16 @@
             majorModal.className = 'modal';
             majorModal.id = 'major-details-modal';
             
+            let objectivesHTML = '';
+            if (major.objectives) {
+                objectivesHTML = `
+                    <h4 style="margin: 20px 0 10px; color: var(--primary-color);">أهداف التخصص:</h4>
+                    <ol style="margin-right: 20px;">
+                        ${major.objectives.map(obj => `<li>${obj}</li>`).join('')}
+                    </ol>
+                `;
+            }
+            
             let featuresHTML = '';
             if (major.features) {
                 featuresHTML = `
@@ -2589,6 +2348,7 @@
                             </div>
                             <p>${major.description}</p>
                             
+                            ${objectivesHTML}
                             ${featuresHTML}
                             
                             <div class="major-info">
@@ -2608,6 +2368,12 @@
                                     <div>${major.projectHours} ساعة</div>
                                 </div>
                                 ` : ''}
+                                ${major.programs ? `
+                                <div class="info-item">
+                                    <div class="info-label">برامج التخصص:</div>
+                                    <div>${major.programs.join('، ')}</div>
+                                </div>
+                                ` : ''}
                                 <div class="info-item">
                                     <div class="info-label">سعر الساعة (تنافس):</div>
                                     <div>${major.competitivePrice} دينار</div>
@@ -2616,12 +2382,24 @@
                                     <div class="info-label">سعر الساعة (موازي):</div>
                                     <div>${major.parallelPrice} دينار</div>
                                 </div>
+                                ${major.acceptanceRate ? `
+                                <div class="info-item">
+                                    <div class="info-label">معدل القبول 2024:</div>
+                                    <div>${major.acceptanceRate}</div>
+                                </div>
+                                ` : ''}
                             </div>
                             
                             <h4 style="margin: 20px 0 10px; color: var(--dark-color);">مجالات العمل:</h4>
                             <div class="job-fields">
                                 ${major.jobFields.map(field => `<div class="job-field">${field}</div>`).join('')}
                             </div>
+                            
+                            ${major.additionalInfo ? `
+                            <div style="margin-top: 20px; padding: 15px; background: #f0f8ff; border-radius: 8px; border-right: 3px solid #4CAF50;">
+                                <p style="color: #2E7D32; font-weight: 600;">${major.additionalInfo}</p>
+                            </div>
+                            ` : ''}
                         </div>
                         
                         <button class="back-btn" id="back-to-majors"><i class="fas fa-arrow-right"></i> العودة لقائمة التخصصات</button>
