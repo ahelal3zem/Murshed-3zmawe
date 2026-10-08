@@ -513,6 +513,54 @@
             margin-bottom: 12px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
+
+        /* ================================
+   بطاقات الدبلوم المتوسط
+   ================================ */
+
+.diploma-btn {
+    background: linear-gradient(135deg, #172554, #0f3b68) !important;
+    border: 2px solid #F9C74F !important;
+}
+
+.diploma-btn::before {
+    background: linear-gradient(90deg, #F9C74F, #F4A261) !important;
+    height: 6px !important;
+}
+
+.diploma-btn::after {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(249, 199, 79, 0.25),
+        transparent
+    ) !important;
+}
+
+.diploma-btn:hover {
+    background: linear-gradient(135deg, #0f3b68, #172554) !important;
+    transform: translateY(-8px) scale(1.03);
+    border-color: #F9C74F !important;
+}
+
+.diploma-btn .diploma-badge {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: rgba(249, 199, 79, 0.18);
+    border: 1px solid rgba(249, 199, 79, 0.6);
+    color: #F9C74F;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.diploma-btn .diploma-price {
+    margin-top: 7px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+}
         
         .major-title {
             font-size: 1.3rem;
@@ -1949,7 +1997,9 @@ sharia: {
                             "مطور نظم", "مدير شبكة حاسوبية", "مدير قواعد بيانات", "مشرف مختبر",
                             "باحث", "صيانة أجهزة الحاسوب", "عمل حر"
                         ]
+                        
                     },
+                    
                     {
                         name: "أمن وسرية الشبكات والمعلومات",
                         icon: "fas fa-shield-alt",
@@ -2006,6 +2056,56 @@ sharia: {
                             "مُحلل النظم",
                             "مهندس تقنية المعلومات",
                             "أخصائي الدعم الفني"
+                        ]
+                    }
+
+                                        ,
+                    {
+                        name: "دبلوم متوسط في علم الحاسوب",
+                        icon: "fas fa-laptop-code",
+                        type: "diploma",
+                        description: "تم استحداث دبلوم متوسط في علم الحاسوب ضمن كلية تكنولوجيا المعلومات.",
+                        competitivePrice: 24,
+                        parallelPrice: 34,
+                        jobFields: [
+                            "البرمجة",
+                            "الدعم الفني",
+                            "صيانة أجهزة الحاسوب",
+                            "تكنولوجيا المعلومات",
+                            "الشبكات",
+                            "العمل الحر"
+                        ]
+                    },
+                    {
+                        name: "دبلوم متوسط في هندسة البرمجيات",
+                        icon: "fas fa-code",
+                        type: "diploma",
+                        description: "تم استحداث دبلوم متوسط في هندسة البرمجيات ضمن كلية تكنولوجيا المعلومات.",
+                        competitivePrice: 24,
+                        parallelPrice: 34,
+                        jobFields: [
+                            "البرمجة",
+                            "تطوير البرمجيات",
+                            "اختبار البرمجيات",
+                            "الدعم الفني",
+                            "تطوير التطبيقات",
+                            "العمل الحر"
+                        ]
+                    },
+                    {
+                        name: "دبلوم متوسط في الأمن السيبراني",
+                        icon: "fas fa-shield-alt",
+                        type: "diploma",
+                        description: "تم استحداث دبلوم متوسط في الأمن السيبراني ضمن كلية تكنولوجيا المعلومات.",
+                        competitivePrice: 24,
+                        parallelPrice: 34,
+                        jobFields: [
+                            "الأمن السيبراني",
+                            "أمن الشبكات",
+                            "أمن المعلومات",
+                            "الدعم الفني",
+                            "مراقبة أمن الأنظمة",
+                            "تكنولوجيا المعلومات"
                         ]
                     }
                 ]
@@ -2202,7 +2302,12 @@ sharia: {
                         } else {
                             // تخصص عادي - إنشاء زر
                             const majorButton = document.createElement('button');
-                            majorButton.className = 'major-btn';
+
+                            majorButton.innerHTML = `
+    <i class="${major.icon}"></i>
+    <div class="major-title">${major.name}</div>
+    <div class="major-subtitle">اضغط لعرض التفاصيل الكاملة</div>
+`;
                             
                             // تحديد الأيقونة المناسبة حسب اسم التخصص
                             let icon = "fas fa-graduation-cap";
@@ -2214,11 +2319,29 @@ sharia: {
                                 icon = "fas fa-chalkboard-teacher";
                             }
                             
-                            majorButton.innerHTML = `
-                                <i class="${icon}"></i>
-                                <div class="major-title">${major}</div>
-                                <div class="major-subtitle">اضغط للمزيد من المعلومات</div>
-                            `;
+                           majorButton.innerHTML = `
+    <i class="${major.icon}"></i>
+    <div class="major-title">${major.name}</div>
+    
+    ${
+        major.type === 'diploma'
+        ? `
+            <div class="diploma-badge">
+                دبلوم متوسط
+            </div>
+            <div class="diploma-price">
+                تنافس ${major.competitivePrice} د.أ
+                &nbsp; | &nbsp;
+                موازي ${major.parallelPrice} د.أ
+            </div>
+        `
+        : `
+            <div class="major-subtitle">
+                اضغط لعرض التفاصيل الكاملة
+            </div>
+        `
+    }
+`;
                             
                             majorsGrid.appendChild(majorButton);
                         }
@@ -2301,10 +2424,12 @@ sharia: {
                             ${featuresHTML}
                             
                             <div class="major-info">
-                                <div class="info-item">
-                                    <div class="info-label">عدد الساعات الكلي:</div>
-                                    <div>${major.hours} ساعة</div>
-                                </div>
+                                ${major.hours ? `
+<div class="info-item">
+    <div class="info-label">عدد الساعات الكلي:</div>
+    <div>${major.hours} ساعة</div>
+</div>
+` : ''}
                                 ${major.fieldHours ? `
                                 <div class="info-item">
                                     <div class="info-label">الساعات الميدانية:</div>
